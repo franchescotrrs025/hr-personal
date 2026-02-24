@@ -823,7 +823,7 @@ Muestra 3 filas:${JSON.stringify(employeeData.slice(0,3))}.`;
 const SYS='Eres un asistente experto en RRHH. Responde en español, de forma concisa y precisa. Usa **negrita** para cifras clave. Cuando te pregunten por filtros específicos (empresa, área, género, mes, año), analiza los datos del contexto y responde con el resultado exacto. Usa saltos de línea para listas.';
 
 async function qGemini(q){
-  const url=`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${getKey('gemini')}`;
+  const url=`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${getKey('gemini')}`;
   const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:SYS+'\n\nDatos:\n'+buildCtx(q)+'\n\nPregunta: '+q}]}],generationConfig:{maxOutputTokens:1000,temperature:0.1}})});
   if(!res.ok){const e=await res.json();throw new Error(e.error?.message||'Error Gemini '+res.status);}
   const d=await res.json();return d.candidates?.[0]?.content?.parts?.[0]?.text||'Sin respuesta.';
