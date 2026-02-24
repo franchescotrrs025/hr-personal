@@ -13,8 +13,6 @@
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 20% 20%,rgba(108,99,255,.08),transparent 60%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(255,101,132,.06),transparent 60%);pointer-events:none;z-index:0}
 .container{max-width:1060px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
-
-/* HEADER */
 header{padding:28px 0 20px;display:flex;align-items:center;gap:16px;border-bottom:1px solid var(--border);margin-bottom:28px}
 .logo{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 0 24px var(--glow)}
 .header-text h1{font-family:'Syne',sans-serif;font-weight:800;font-size:21px;letter-spacing:-.5px;background:linear-gradient(135deg,var(--text) 60%,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -22,15 +20,11 @@ header{padding:28px 0 20px;display:flex;align-items:center;gap:16px;border-botto
 .status-badge{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);padding:6px 14px;border-radius:100px;font-size:12px;font-family:'DM Mono',monospace;color:var(--muted);white-space:nowrap}
 .status-dot{width:6px;height:6px;border-radius:50%;background:var(--muted);transition:all .3s}
 .status-dot.active{background:var(--accent3);box-shadow:0 0 8px var(--accent3)}
-
-/* TABS */
 .tabs{display:flex;gap:4px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:4px;margin-bottom:24px}
 .tab{flex:1;padding:9px 4px;border-radius:10px;font-size:12px;font-weight:500;cursor:pointer;border:none;background:transparent;color:var(--muted);transition:all .2s;font-family:'DM Sans',sans-serif;text-align:center}
 .tab.active{background:linear-gradient(135deg,var(--accent),#8b5cf6);color:white}
 .tab:hover:not(.active){color:var(--text)}
 .panel{display:none}.panel.active{display:block}
-
-/* UPLOAD */
 .upload-zone{border:2px dashed var(--border);border-radius:18px;padding:36px 28px;text-align:center;cursor:pointer;transition:all .3s;background:var(--card);margin-bottom:18px}
 .upload-zone:hover,.upload-zone.dragover{border-color:var(--accent);box-shadow:0 0 40px var(--glow)}
 .upload-zone h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:6px}
@@ -43,13 +37,10 @@ header{padding:28px 0 20px;display:flex;align-items:center;gap:16px;border-botto
 .file-list{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
 .file-item{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:11px 14px;display:flex;align-items:center;gap:10px;animation:sIn .3s ease forwards;opacity:0;transform:translateY(5px)}
 @keyframes sIn{to{opacity:1;transform:translateY(0)}}
-.file-item-info{flex:1}
-.file-item-info h4{font-size:13px;font-weight:600}
+.file-item-info{flex:1}.file-item-info h4{font-size:13px;font-weight:600}
 .file-item-info p{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:1px}
 .file-remove{background:transparent;border:none;cursor:pointer;color:var(--muted);font-size:15px;padding:3px 6px;border-radius:6px;transition:all .2s}
 .file-remove:hover{color:var(--accent2)}
-
-/* BUTTONS */
 .btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:11px;font-size:13px;font-weight:500;cursor:pointer;border:none;transition:all .2s;font-family:'DM Sans',sans-serif}
 .btn-primary{background:linear-gradient(135deg,var(--accent),#8b5cf6);color:white;box-shadow:0 4px 16px rgba(108,99,255,.3)}
 .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(108,99,255,.4)}
@@ -61,10 +52,8 @@ header{padding:28px 0 20px;display:flex;align-items:center;gap:16px;border-botto
 .btn-danger:hover{background:rgba(255,101,132,.08)}
 .btn-sm{padding:8px 14px;font-size:12px;border-radius:9px}
 #fileInput{display:none}
-
-/* STATS */
 .stats-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
-.stat-card{flex:1;min-width:120px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px;position:relative;overflow:hidden;animation:sIn .4s ease forwards;opacity:0;transform:translateY(8px)}
+.stat-card{flex:1;min-width:110px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px;position:relative;overflow:hidden;animation:sIn .4s ease forwards;opacity:0;transform:translateY(8px)}
 .stat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
 .sc-blue::after{background:linear-gradient(90deg,var(--accent),transparent)}
 .sc-green::after{background:linear-gradient(90deg,var(--accent3),transparent)}
@@ -72,11 +61,11 @@ header{padding:28px 0 20px;display:flex;align-items:center;gap:16px;border-botto
 .sc-gold::after{background:linear-gradient(90deg,#f59e0b,transparent)}
 .sc-teal::after{background:linear-gradient(90deg,#06b6d4,transparent)}
 .sc-purple::after{background:linear-gradient(90deg,#a78bfa,transparent)}
+.sc-red::after{background:linear-gradient(90deg,#ef4444,transparent)}
+.sc-orange::after{background:linear-gradient(90deg,#f97316,transparent)}
 .stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-family:'DM Mono',monospace;margin-bottom:4px}
-.stat-value{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;line-height:1}
-.sc-blue .stat-value{color:var(--accent)}.sc-green .stat-value{color:var(--accent3)}.sc-pink .stat-value{color:var(--accent2)}.sc-gold .stat-value{color:#f59e0b}.sc-teal .stat-value{color:#06b6d4}.sc-purple .stat-value{color:#a78bfa}
-
-/* DASHBOARD */
+.stat-value{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;line-height:1}
+.sc-blue .stat-value{color:var(--accent)}.sc-green .stat-value{color:var(--accent3)}.sc-pink .stat-value{color:var(--accent2)}.sc-gold .stat-value{color:#f59e0b}.sc-teal .stat-value{color:#06b6d4}.sc-purple .stat-value{color:#a78bfa}.sc-red .stat-value{color:#ef4444}.sc-orange .stat-value{color:#f97316}
 .dash-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:20px}
 .dash-actions h3{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;flex:1}
 .charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
@@ -84,8 +73,6 @@ header{padding:28px 0 20px;display:flex;align-items:center;gap:16px;border-botto
 .chart-card h4{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:14px;color:var(--text)}
 .chart-card canvas{max-height:220px}
 .chart-full{grid-column:1/-1}
-
-/* EXPORT SECTION */
 .export-section{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:20px}
 .export-section h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:14px}
 .export-filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:flex-end}
@@ -94,8 +81,6 @@ header{padding:28px 0 20px;display:flex;align-items:center;gap:16px;border-botto
 .filter-select,.filter-input{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:8px 12px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color .2s;width:100%}
 .filter-select:focus,.filter-input:focus{border-color:var(--accent)}
 .export-btns{display:flex;gap:8px;flex-wrap:wrap}
-
-/* CHAT */
 .chat-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
 .chat-header h3{font-family:'Syne',sans-serif;font-weight:700;font-size:17px}
 .ai-badge{font-size:10px;font-family:'DM Mono',monospace;padding:3px 10px;border-radius:100px;letter-spacing:1px;color:white}
@@ -103,37 +88,33 @@ header{padding:28px 0 20px;display:flex;align-items:center;gap:16px;border-botto
 .ai-badge.openai{background:linear-gradient(135deg,#10a37f,#1a7f64)}
 .ai-badge.claude{background:linear-gradient(135deg,var(--accent),#8b5cf6)}
 .ai-badge.local{background:linear-gradient(135deg,#6b7280,#4b5563)}
-.suggestions{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
-.chip{background:var(--card);border:1px solid var(--border);color:var(--text);padding:6px 13px;border-radius:100px;font-size:11px;cursor:pointer;transition:all .2s;font-family:'DM Mono',monospace}
+.ai-badge.groq{background:linear-gradient(135deg,#f55036,#ff8c00)}
+.suggestions{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.chip{background:var(--card);border:1px solid var(--border);color:var(--text);padding:5px 11px;border-radius:100px;font-size:11px;cursor:pointer;transition:all .2s;font-family:'DM Mono',monospace}
 .chip:hover{border-color:var(--accent);color:var(--accent);background:rgba(108,99,255,.08)}
-.messages{display:flex;flex-direction:column;gap:14px;min-height:180px;max-height:440px;overflow-y:auto;padding:4px 0;scrollbar-width:thin;scrollbar-color:var(--border) transparent;margin-bottom:14px}
+.chip-cat{font-size:10px;color:var(--muted);padding:5px 0;font-family:'DM Mono',monospace;width:100%;margin-top:4px}
+.messages{display:flex;flex-direction:column;gap:14px;min-height:180px;max-height:480px;overflow-y:auto;padding:4px 0;scrollbar-width:thin;scrollbar-color:var(--border) transparent;margin-bottom:14px}
 .msg{display:flex;gap:10px;animation:msgIn .3s ease}
 @keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .msg.user{flex-direction:row-reverse}
 .msg-avatar{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
 .msg.user .msg-avatar{background:linear-gradient(135deg,var(--accent2),#f59e0b)}
 .msg.ai .msg-avatar{background:linear-gradient(135deg,var(--accent),var(--accent3))}
-.msg-bubble{max-width:80%;padding:13px 16px;border-radius:14px;font-size:13px;line-height:1.6}
+.msg-bubble{max-width:82%;padding:13px 16px;border-radius:14px;font-size:13px;line-height:1.6}
 .msg.user .msg-bubble{background:linear-gradient(135deg,var(--accent),#8b5cf6);color:white;border-bottom-right-radius:4px}
 .msg.ai .msg-bubble{background:var(--card);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:4px}
 .msg.ai .msg-bubble strong{color:var(--accent3)}
-
-/* ERROR AMIGABLE en el chat */
-.err-card{background:rgba(255,101,132,.06);border:1px solid rgba(255,101,132,.25);border-radius:11px;padding:12px 14px;margin-bottom:8px}
-.err-card .err-title{font-size:12px;font-weight:600;color:var(--accent2);margin-bottom:4px;display:flex;align-items:center;gap:6px}
-.err-card .err-body{font-size:12px;color:var(--muted);line-height:1.6;font-family:'DM Mono',monospace}
-.err-card .err-tip{font-size:11px;color:#f59e0b;margin-top:6px;font-family:'DM Mono',monospace}
-.err-divider{border:none;border-top:1px dashed var(--border);margin:10px 0}
-
-/* QUOTA BANNER */
+.msg-actions{display:flex;gap:6px;margin-top:5px}
+.msg-act-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:3px 9px;border-radius:7px;font-size:10px;cursor:pointer;font-family:'DM Mono',monospace;transition:all .2s}
+.msg-act-btn:hover{border-color:var(--accent3);color:var(--accent3)}
 .quota-banner{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.3);border-radius:11px;padding:11px 14px;margin-bottom:10px;font-size:12px;font-family:'DM Mono',monospace;color:#f59e0b;display:flex;align-items:center;gap:8px}
 .quota-banner .qb-icon{font-size:16px;flex-shrink:0}
 .quota-banner .qb-retry{margin-left:auto;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);color:#f59e0b;padding:4px 10px;border-radius:7px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;transition:all .2s}
 .quota-banner .qb-retry:hover{background:rgba(245,158,11,.25)}
 .quota-banner .qb-retry:disabled{opacity:.5;cursor:not-allowed}
-
 .msg-time{font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:3px}
 .highlight{background:rgba(108,99,255,.15);border-left:3px solid var(--accent);padding:7px 11px;border-radius:4px;margin:7px 0;font-family:'DM Mono',monospace;font-size:12px}
+.err-divider{border:none;border-top:1px dashed var(--border);margin:10px 0}
 .input-area{display:flex;gap:8px;align-items:flex-end;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:7px;transition:border-color .2s}
 .input-area:focus-within{border-color:var(--accent);box-shadow:0 0 16px var(--glow)}
 #queryInput{flex:1;background:transparent;border:none;outline:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;padding:7px 10px;resize:none;min-height:36px;max-height:110px}
@@ -145,21 +126,16 @@ header{padding:28px 0 20px;display:flex;align-items:center;gap:16px;border-botto
 .typing span{width:5px;height:5px;background:var(--accent);border-radius:50%;animation:bounce 1.2s infinite}
 .typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
 @keyframes bounce{0%,80%,100%{transform:translateY(0);opacity:.4}40%{transform:translateY(-5px);opacity:1}}
-
-/* HISTORIAL */
 .history-list{display:flex;flex-direction:column;gap:10px}
 .hsession{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;cursor:pointer;transition:all .2s}
 .hsession:hover{border-color:var(--accent);background:rgba(108,99,255,.04)}
 .hsession-header{display:flex;align-items:center;gap:10px;margin-bottom:7px}
-.hsession-info{flex:1}
-.hsession-info h4{font-family:'Syne',sans-serif;font-size:13px;font-weight:700}
+.hsession-info{flex:1}.hsession-info h4{font-family:'Syne',sans-serif;font-size:13px;font-weight:700}
 .hsession-info p{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace}
 .hsession-preview{font-size:11px;color:var(--muted);line-height:1.5;border-left:2px solid var(--border);padding-left:10px}
 .hempty{text-align:center;padding:40px 20px;color:var(--muted)}
-
-/* CONFIG */
 .ai-selector{display:flex;gap:7px;margin-bottom:18px;flex-wrap:wrap}
-.ai-option{flex:1;min-width:110px;background:var(--card);border:2px solid var(--border);border-radius:13px;padding:12px 10px;text-align:center;cursor:pointer;transition:all .2s}
+.ai-option{flex:1;min-width:100px;background:var(--card);border:2px solid var(--border);border-radius:13px;padding:12px 10px;text-align:center;cursor:pointer;transition:all .2s}
 .ai-option:hover{border-color:var(--accent)}
 .ai-option.selected{border-color:var(--accent);background:rgba(108,99,255,.1)}
 .ai-option .ai-icon{font-size:22px;margin-bottom:5px}
@@ -180,6 +156,7 @@ header{padding:28px 0 20px;display:flex;align-items:center;gap:16px;border-botto
 .progress-bar{height:3px;background:var(--border);border-radius:100px;margin-top:7px;overflow:hidden}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent3));border-radius:100px;transition:width .5s ease}
 .warn-box{background:rgba(255,101,132,.08);border:1px solid rgba(255,101,132,.3);border-radius:11px;padding:14px;margin-bottom:14px;font-size:13px;color:var(--accent2)}
+.col-detect{background:rgba(67,232,176,.06);border:1px solid rgba(67,232,176,.2);border-radius:11px;padding:10px 14px;margin-bottom:14px;font-size:11px;color:var(--accent3);font-family:'DM Mono',monospace;line-height:1.8}
 .toast{position:fixed;bottom:22px;right:22px;background:var(--card);border:1px solid var(--accent3);color:var(--accent3);padding:11px 18px;border-radius:11px;font-family:'DM Mono',monospace;font-size:12px;z-index:9999;transition:all .3s;opacity:0;transform:translateY(8px)}
 footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color:var(--muted);font-size:11px;font-family:'DM Mono',monospace;margin-top:16px}
 @media(max-width:700px){.charts-grid{grid-template-columns:1fr}.chart-full{grid-column:1}.stat-card{min-width:calc(50% - 5px)}.tab{font-size:10px;padding:8px 2px}.msg-bubble{max-width:90%}.ai-option{min-width:calc(50% - 4px)}}
@@ -191,7 +168,7 @@ footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color
     <div class="logo">👥</div>
     <div class="header-text">
       <h1>HR Intelligence</h1>
-      <p>Dashboard · Multi-IA · Exportación Excel · Múltiples archivos</p>
+      <p>Dashboard · Multi-IA · Exportación · Cumpleaños · Antigüedad · Cargos</p>
     </div>
     <div class="status-badge">
       <div class="status-dot" id="statusDot"></div>
@@ -221,7 +198,7 @@ footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color
       <button class="btn btn-primary" onclick="event.stopPropagation();document.getElementById('fileInput').click()">➕ Agregar archivo</button>
       <input type="file" id="fileInput" accept=".xlsx,.xls" multiple onchange="handleFile(event)">
     </div>
-
+    <div id="colDetect" class="col-detect" style="display:none"></div>
     <div id="filesSection" style="display:none;margin-bottom:18px">
       <div class="files-header">
         <h3>Archivos cargados</h3>
@@ -237,14 +214,15 @@ footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color
         <div class="progress-bar"><div class="progress-fill" id="memoryBar" style="width:0%"></div></div>
       </div>
     </div>
-
     <div id="statsBar" class="stats-bar" style="display:none">
       <div class="stat-card sc-blue" style="animation-delay:0s"><div class="stat-label">Total</div><div class="stat-value" id="sTotal">0</div></div>
-      <div class="stat-card sc-green" style="animation-delay:.08s"><div class="stat-label">Activos</div><div class="stat-value" id="sActivos">0</div></div>
-      <div class="stat-card sc-pink" style="animation-delay:.16s"><div class="stat-label">Con Cese</div><div class="stat-value" id="sCeses">0</div></div>
-      <div class="stat-card sc-teal" style="animation-delay:.24s"><div class="stat-label">Mujeres</div><div class="stat-value" id="sMujeres">0</div></div>
-      <div class="stat-card sc-gold" style="animation-delay:.32s"><div class="stat-label">Hombres</div><div class="stat-value" id="sHombres">0</div></div>
-      <div class="stat-card sc-purple" style="animation-delay:.4s"><div class="stat-label">Empresas</div><div class="stat-value" id="sEmpresas">0</div></div>
+      <div class="stat-card sc-green" style="animation-delay:.07s"><div class="stat-label">Activos</div><div class="stat-value" id="sActivos">0</div></div>
+      <div class="stat-card sc-pink" style="animation-delay:.14s"><div class="stat-label">Con Cese</div><div class="stat-value" id="sCeses">0</div></div>
+      <div class="stat-card sc-teal" style="animation-delay:.21s"><div class="stat-label">Mujeres</div><div class="stat-value" id="sMujeres">0</div></div>
+      <div class="stat-card sc-gold" style="animation-delay:.28s"><div class="stat-label">Hombres</div><div class="stat-value" id="sHombres">0</div></div>
+      <div class="stat-card sc-purple" style="animation-delay:.35s"><div class="stat-label">Empresas</div><div class="stat-value" id="sEmpresas">0</div></div>
+      <div class="stat-card sc-orange" style="animation-delay:.42s"><div class="stat-label">Áreas</div><div class="stat-value" id="sAreas">0</div></div>
+      <div class="stat-card sc-red" style="animation-delay:.49s"><div class="stat-label">Sedes</div><div class="stat-value" id="sSedes">0</div></div>
     </div>
   </div>
 
@@ -252,17 +230,21 @@ footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color
   <div id="panel-dashboard" class="panel">
     <div class="dash-actions">
       <h3>Dashboard de Personal</h3>
-      <button class="btn btn-success btn-sm" onclick="exportDashboardPDF()">📥 Exportar dashboard</button>
+      <button class="btn btn-success btn-sm" onclick="exportDashboardPDF()">📥 Exportar PDF</button>
     </div>
     <div id="noDashData" class="warn-box" style="display:none">⚠️ Carga un archivo Excel primero en la pestaña <strong>Datos</strong>.</div>
-    <div id="chartsContainer">
-      <div class="charts-grid" id="chartsGrid">
+    <div id="chartsContainer" style="display:none">
+      <div class="charts-grid">
         <div class="chart-card"><h4>👥 Activos vs Ceses</h4><canvas id="cActivos"></canvas></div>
         <div class="chart-card"><h4>⚧ Distribución por Género</h4><canvas id="cGenero"></canvas></div>
         <div class="chart-card"><h4>🏢 Top 8 Empresas</h4><canvas id="cEmpresas"></canvas></div>
         <div class="chart-card"><h4>📋 Tipos de Contrato</h4><canvas id="cContratos"></canvas></div>
         <div class="chart-card chart-full"><h4>🏗️ Top 10 Áreas con más personal</h4><canvas id="cAreas"></canvas></div>
         <div class="chart-card chart-full"><h4>📅 Ingresos por mes (último año)</h4><canvas id="cIngresos"></canvas></div>
+        <div class="chart-card" id="cardSedes" style="display:none"><h4>📍 Por Sede</h4><canvas id="cSedes"></canvas></div>
+        <div class="chart-card" id="cardCargos" style="display:none"><h4>💼 Top 10 Cargos</h4><canvas id="cCargos"></canvas></div>
+        <div class="chart-card chart-full" id="cardCumples" style="display:none"><h4>🎂 Cumpleaños por mes</h4><canvas id="cCumples"></canvas></div>
+        <div class="chart-card chart-full" id="cardAntig" style="display:none"><h4>📆 Antigüedad (años en empresa)</h4><canvas id="cAntig"></canvas></div>
       </div>
     </div>
   </div>
@@ -272,41 +254,31 @@ footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color
     <div class="export-section">
       <h4>⬇️ Exportar datos a Excel</h4>
       <div class="export-filters">
-        <div class="filter-group">
-          <label>EMPRESA</label>
-          <select class="filter-select" id="fEmpresa"><option value="">Todas</option></select>
-        </div>
-        <div class="filter-group">
-          <label>ÁREA</label>
-          <select class="filter-select" id="fArea"><option value="">Todas</option></select>
-        </div>
-        <div class="filter-group">
-          <label>SEDE</label>
-          <select class="filter-select" id="fSede"><option value="">Todas</option></select>
-        </div>
-        <div class="filter-group">
-          <label>SITUACIÓN</label>
+        <div class="filter-group"><label>EMPRESA</label><select class="filter-select" id="fEmpresa"><option value="">Todas</option></select></div>
+        <div class="filter-group"><label>ÁREA</label><select class="filter-select" id="fArea"><option value="">Todas</option></select></div>
+        <div class="filter-group"><label>SEDE</label><select class="filter-select" id="fSede"><option value="">Todas</option></select></div>
+        <div class="filter-group"><label>CARGO</label><select class="filter-select" id="fCargo"><option value="">Todos</option></select></div>
+        <div class="filter-group"><label>TIPO CONTRATO</label><select class="filter-select" id="fContrato"><option value="">Todos</option></select></div>
+        <div class="filter-group"><label>SITUACIÓN</label>
           <select class="filter-select" id="fSituacion">
-            <option value="">Todos</option>
-            <option value="activo">Solo Activos</option>
-            <option value="cese">Solo Ceses</option>
+            <option value="">Todos</option><option value="activo">Solo Activos</option><option value="cese">Solo Ceses</option>
           </select>
         </div>
-        <div class="filter-group">
-          <label>GÉNERO</label>
+        <div class="filter-group"><label>GÉNERO</label>
           <select class="filter-select" id="fGenero">
-            <option value="">Todos</option>
-            <option value="F">Femenino</option>
-            <option value="M">Masculino</option>
+            <option value="">Todos</option><option value="F">Femenino</option><option value="M">Masculino</option>
           </select>
         </div>
-        <div class="filter-group">
-          <label>FECHA INGRESO (desde)</label>
-          <input type="date" class="filter-input" id="fFechaDesde">
-        </div>
-        <div class="filter-group">
-          <label>FECHA INGRESO (hasta)</label>
-          <input type="date" class="filter-input" id="fFechaHasta">
+        <div class="filter-group"><label>FECHA INGRESO (desde)</label><input type="date" class="filter-input" id="fFechaDesde"></div>
+        <div class="filter-group"><label>FECHA INGRESO (hasta)</label><input type="date" class="filter-input" id="fFechaHasta"></div>
+        <div class="filter-group"><label>MES CUMPLEAÑOS</label>
+          <select class="filter-select" id="fMesCumple">
+            <option value="">Todos</option>
+            <option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option>
+            <option value="4">Abril</option><option value="5">Mayo</option><option value="6">Junio</option>
+            <option value="7">Julio</option><option value="8">Agosto</option><option value="9">Septiembre</option>
+            <option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option>
+          </select>
         </div>
       </div>
       <div style="margin-bottom:10px;font-size:12px;color:var(--muted);font-family:'DM Mono',monospace">
@@ -314,12 +286,12 @@ footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color
       </div>
       <div class="export-btns">
         <button class="btn btn-success" onclick="exportFiltered()">📥 Descargar Excel filtrado</button>
-        <button class="btn btn-ghost" onclick="exportAll()">📥 Descargar todo (sin filtros)</button>
+        <button class="btn btn-ghost" onclick="exportAll()">📥 Descargar todo</button>
         <button class="btn btn-ghost btn-sm" onclick="resetFilters()">↺ Limpiar filtros</button>
       </div>
     </div>
     <div id="filterPreview" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;display:none">
-      <h4 style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:10px">Vista previa</h4>
+      <h4 style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:10px">Vista previa del filtro</h4>
       <div id="filterPreviewContent" style="font-size:12px;font-family:'DM Mono',monospace;color:var(--muted);line-height:2"></div>
     </div>
   </div>
@@ -332,27 +304,15 @@ footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color
       <button class="btn btn-ghost btn-sm" style="margin-left:auto" onclick="clearChat()">🗑 Limpiar</button>
     </div>
     <div id="noDataWarning" style="display:none" class="warn-box">⚠️ Primero sube archivos Excel en <strong>Datos</strong>.</div>
-
-    <!-- Banner de cuota excedida (oculto por defecto) -->
     <div id="quotaBanner" style="display:none" class="quota-banner">
       <span class="qb-icon">⏱</span>
-      <span id="quotaMsg">Límite de Gemini alcanzado. Respuesta local activa.</span>
+      <span id="quotaMsg">Límite alcanzado. Respuesta local activa.</span>
       <button class="qb-retry" id="quotaRetryBtn" onclick="retryWithAI()" disabled>Reintentar en <span id="quotaCountdown">--</span>s</button>
     </div>
-
-    <div class="suggestions">
-      <span class="chip" onclick="askS(this)">¿Cuántas mujeres hay?</span>
-      <span class="chip" onclick="askS(this)">Ceses en enero 2024</span>
-      <span class="chip" onclick="askS(this)">Personal de Repsol</span>
-      <span class="chip" onclick="askS(this)">Áreas con más personal</span>
-      <span class="chip" onclick="askS(this)">Contratos por empresa</span>
-      <span class="chip" onclick="askS(this)">Ingresos del último mes</span>
-      <span class="chip" onclick="askS(this)">Ceses por motivo</span>
-      <span class="chip" onclick="askS(this)">Mujeres en operaciones Repsol enero</span>
-    </div>
+    <div class="suggestions" id="chipContainer"></div>
     <div class="messages" id="messages"></div>
     <div class="input-area">
-      <textarea id="queryInput" placeholder="Ej: ¿Cuántas mujeres hay en el área de operaciones de Repsol en enero?" rows="1"
+      <textarea id="queryInput" placeholder="Ej: ¿Quiénes cumplen años en marzo en Repsol? ¿Cuántos tienen más de 5 años de antigüedad?" rows="1"
         onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendQuery()}"
         oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"></textarea>
       <button id="sendBtn" onclick="sendQuery()">➤</button>
@@ -362,7 +322,7 @@ footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color
   <!-- ══ HISTORIAL ══ -->
   <div id="panel-historial" class="panel">
     <div class="chat-header">
-      <h3>Historial</h3>
+      <h3>Historial de Sesiones</h3>
       <button class="btn btn-danger btn-sm" style="margin-left:auto" onclick="clearHistory()">🗑 Borrar todo</button>
     </div>
     <div class="history-list" id="historyList"></div>
@@ -374,6 +334,7 @@ footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color
       <div class="stat-label" style="margin-bottom:10px">🤖 SELECCIONA TU IA</div>
       <div class="ai-selector">
         <div class="ai-option" id="opt-gemini" onclick="selectAI('gemini')"><div class="ai-icon">🔵</div><div class="ai-name">Gemini</div><div class="ai-sub">Google · Gratis</div></div>
+        <div class="ai-option" id="opt-groq" onclick="selectAI('groq')"><div class="ai-icon">🟠</div><div class="ai-name">Groq</div><div class="ai-sub">Gratis · Rápido</div></div>
         <div class="ai-option" id="opt-claude" onclick="selectAI('claude')"><div class="ai-icon">🟣</div><div class="ai-name">Claude</div><div class="ai-sub">Anthropic</div></div>
         <div class="ai-option" id="opt-openai" onclick="selectAI('openai')"><div class="ai-icon">🟢</div><div class="ai-name">ChatGPT</div><div class="ai-sub">OpenAI</div></div>
         <div class="ai-option selected" id="opt-local" onclick="selectAI('local')"><div class="ai-icon">⚡</div><div class="ai-name">Local</div><div class="ai-sub">Sin API</div></div>
@@ -384,6 +345,12 @@ footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color
       <div class="key-row"><input type="password" class="key-input" id="key-gemini" placeholder="AIza…"/><button class="btn btn-primary btn-sm" onclick="saveKey('gemini')">Guardar</button></div>
       <p class="key-status ks-empty" id="status-gemini">Sin clave guardada</p>
       <p class="api-note">Gratis sin tarjeta · <a href="https://aistudio.google.com/app/apikey" target="_blank">aistudio.google.com</a></p>
+    </div>
+    <div class="key-block" id="block-groq" style="display:none">
+      <label>🟠 GROQ API KEY <span style="background:rgba(67,232,176,.15);color:#43e8b0;font-size:10px;padding:2px 8px;border-radius:100px;margin-left:6px">GRATIS PARA SIEMPRE</span></label>
+      <div class="key-row"><input type="password" class="key-input" id="key-groq" placeholder="gsk_…"/><button class="btn btn-primary btn-sm" onclick="saveKey('groq')">Guardar</button></div>
+      <p class="key-status ks-empty" id="status-groq">Sin clave guardada</p>
+      <p class="api-note">Sin tarjeta · Llama 3.3 70B · Rapidísimo · <a href="https://console.groq.com/keys" target="_blank">console.groq.com</a></p>
     </div>
     <div class="key-block" id="block-claude" style="display:none">
       <label>🟣 ANTHROPIC CLAUDE API KEY</label>
@@ -397,29 +364,112 @@ footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color
       <p class="key-status ks-empty" id="status-openai">Sin clave guardada</p>
       <p class="api-note"><a href="https://platform.openai.com/api-keys" target="_blank">platform.openai.com</a></p>
     </div>
-    <div class="key-block" id="block-local"><label>⚡ MODO LOCAL</label><p style="font-size:13px;color:var(--muted);line-height:1.6">Sin internet ni claves. Responde preguntas básicas y complejas con filtros locales.</p></div>
+    <div class="key-block" id="block-local"><label>⚡ MODO LOCAL</label><p style="font-size:13px;color:var(--muted);line-height:1.6">Sin internet ni claves API. Procesa todo en tu navegador con filtros avanzados.</p></div>
     <div class="info-box" style="margin-top:14px">
       <div class="stat-label" style="margin-bottom:8px">💾 ALMACENAMIENTO LOCAL</div>
-      <p>Datos, claves e historial guardados en tu navegador. Disponibles siempre que vuelvas.</p>
+      <p>Datos, claves e historial guardados en tu navegador. Disponibles siempre que vuelvas a esta página.</p>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn btn-danger btn-sm" onclick="clearAllData()">🗑 Borrar datos</button>
       <button class="btn btn-danger btn-sm" onclick="clearHistory()">🗑 Borrar historial</button>
     </div>
   </div>
-
-  <footer>HR Intelligence · Dashboard · Multi-IA · Exportación Excel</footer>
+  <footer>HR Intelligence · Dashboard · Multi-IA · Cumpleaños · Antigüedad · Exportación Excel</footer>
 </div>
 <div class="toast" id="toast"></div>
 
 <script>
 // ══════════════════════════════════════════
-//  ESTADO GLOBAL
+//  ESTADO
 // ══════════════════════════════════════════
-let loadedFiles=[], employeeData=[], chatHistory=[], allSessions=[], activeAI='local';
-let charts={};
-let quotaRetryTimer=null, lastFailedQuery=null, lastFailedQ=null;
-const SK={files:'hr_files2',sessions:'hr_sessions2',ai:'hr_ai',kg:'hr_kg',kc:'hr_kc',ko:'hr_ko'};
+let loadedFiles=[],employeeData=[],chatHistory=[],allSessions=[],activeAI='local';
+let charts={},quotaRetryTimer=null,lastFailedQ=null;
+let COLS={}; // columnas detectadas automáticamente
+const SK={files:'hr_files2',sessions:'hr_sessions2',ai:'hr_ai',kg:'hr_kg',kc:'hr_kc',ko:'hr_ko',kgr:'hr_kgr'};
+
+// ══════════════════════════════════════════
+//  DETECCIÓN AUTOMÁTICA DE COLUMNAS
+// ══════════════════════════════════════════
+function detectCols(){
+  if(!employeeData.length){COLS={};return;}
+  const keys=Object.keys(employeeData[0]);
+  const find=(patterns)=>keys.find(k=>patterns.some(p=>k.toUpperCase().includes(p)))||null;
+  COLS={
+    nombre:   find(['NOMBRE','NAME']),
+    apellido: find(['APELLIDO','SURNAME','PATERNO','MATERNO']),
+    empresa:  find(['EMPRESA','COMPANY']),
+    area:     find(['AREA','ÁREA','DEPARTMENT']),
+    sede:     find(['SEDE','LOCATION','OFICINA','SITE']),
+    cargo:    find(['CARGO','PUESTO','POSICION','POSICIÓN','POSITION','JOB']),
+    contrato: find(['TIPO_CONTRATO','CONTRATO','CONTRACT']),
+    sexo:     find(['SEXO','GENERO','GÉNERO','SEX','GENDER']),
+    ingreso:  find(['FECHA_INGRESO','INGRESO','HIRE','START','INICIO']),
+    cese:     find(['FECHA_CESE','CESE','TERMINATION']),
+    motCese:  find(['MOTIVO_SEPARACION','MOTIVO_CESE','SEPARACION','RAZON_CESE']),
+    codCese:  find(['COD_MOTIVO']),
+    nacimiento:find(['NACIMIENTO','BIRTH','DOB','FECHA_NAC']),
+    dni:      find(['DNI','DOC','CEDULA','RUT','DOCUMENTO']),
+    turno:    find(['TURNO','SHIFT','JORNADA']),
+    depto:    find(['DEPARTAMENTO','DPTO','DEPT']),
+    salario:  find(['SALARIO','SUELDO','SALARY','REMUNERACION','REMUNERACIÓN']),
+  };
+  // Mostrar columnas detectadas
+  const detected=Object.entries(COLS).filter(([,v])=>v).map(([k,v])=>`${k}: <strong>${v}</strong>`);
+  const box=document.getElementById('colDetect');
+  box.style.display='block';
+  box.innerHTML='🔍 Columnas detectadas: '+detected.join(' · ');
+  renderChips();
+}
+
+function isFemale(r){
+  const v=(r[COLS.sexo]||'').toString().trim().toUpperCase();
+  return v==='F'||v==='FEM'||v==='FEMENINO'||v==='MUJER'||v==='2';
+}
+function isCese(r){
+  const fc=(r[COLS.cese]||'').toString().trim();
+  const cm=(r[COLS.codCese]||r[COLS.motCese]||'').toString().trim();
+  return !!(fc||cm);
+}
+function parseDate(raw){
+  if(!raw) return null;
+  let d=new Date(raw);
+  if(!isNaN(d)) return d;
+  const s=raw.toString().trim();
+  const p=s.split(/[\/\-\.]/);
+  if(p.length===3){
+    if(parseInt(p[0])>31) return new Date(`${p[0]}-${p[1]}-${p[2]}`);
+    if(parseInt(p[0])>12) return new Date(`${p[2]}-${p[1]}-${p[0]}`);
+    return new Date(`${p[2]}-${p[0]}-${p[1]}`);
+  }
+  return null;
+}
+function nombreCompleto(r){
+  if(COLS.apellido&&COLS.nombre) return `${r[COLS.apellido]||''} ${r[COLS.nombre]||''}`.trim();
+  if(COLS.nombre) return r[COLS.nombre]||'';
+  return Object.values(r).slice(0,2).join(' ').trim()||'N/N';
+}
+function calcAntigüedad(r){
+  const d=parseDate(r[COLS.ingreso]);
+  if(!d) return null;
+  return Math.floor((new Date()-d)/(1000*60*60*24*365.25));
+}
+
+// ══════════════════════════════════════════
+//  CHIPS DINÁMICOS
+// ══════════════════════════════════════════
+function renderChips(){
+  const container=document.getElementById('chipContainer');
+  const cats=[
+    {label:'👥 Personal',chips:['¿Cuántas mujeres hay?','¿Cuántos activos hay?','Total de personal por empresa','Distribución por área','Personal por sede']},
+    {label:'🎂 Cumpleaños',chips:['Quiénes cumplen años en enero','Quiénes cumplen años en febrero','Quiénes cumplen años en marzo','Cumpleaños del mes actual']},
+    {label:'📅 Ingresos & Ceses',chips:['Ceses en enero 2024','Ingresos del último mes','Ceses por motivo','Ceses en 2024']},
+    {label:'🔎 Filtros avanzados',chips:['Mujeres en Repsol','Personal con más de 5 años','Personal por turno','Personal por tipo de contrato','Listado de cargos']},
+  ];
+  container.innerHTML=cats.map(cat=>
+    `<span class="chip-cat">${cat.label}</span>`+
+    cat.chips.map(c=>`<span class="chip" onclick="askS(this)">${c}</span>`).join('')
+  ).join('');
+}
 
 // ══════════════════════════════════════════
 //  INIT
@@ -427,18 +477,18 @@ const SK={files:'hr_files2',sessions:'hr_sessions2',ai:'hr_ai',kg:'hr_kg',kc:'hr
 document.addEventListener('DOMContentLoaded',()=>{
   activeAI=localStorage.getItem(SK.ai)||'local';
   selectAI(activeAI,true);
-  ['gemini','claude','openai'].forEach(ai=>{
+  ['gemini','claude','openai','groq'].forEach(ai=>{
     const k=getKey(ai);
-    if(k){document.getElementById('key-'+ai).value='••••••••••••••';setKeyStatus(ai,true);}
+    if(k){const el=document.getElementById('key-'+ai);if(el)el.value='••••••••••••••';setKeyStatus(ai,true);}
   });
-  try{const s=localStorage.getItem(SK.files);if(s){loadedFiles=JSON.parse(s);rebuildCombined();renderFileList();updateStats();updateMemoryBar();populateFilters();}}catch(e){localStorage.removeItem(SK.files);}
+  try{const s=localStorage.getItem(SK.files);if(s){loadedFiles=JSON.parse(s);rebuildCombined();detectCols();renderFileList();updateStats();updateMemoryBar();populateFilters();}}catch(e){localStorage.removeItem(SK.files);}
   try{const s=localStorage.getItem(SK.sessions);if(s)allSessions=JSON.parse(s);}catch(e){}
   if(employeeData.length>0)addWelcome();
-  renderHistory();
-  updateExportCount();
-  ['fEmpresa','fArea','fSede','fSituacion','fGenero','fFechaDesde','fFechaHasta'].forEach(id=>{
-    document.getElementById(id).addEventListener('change',updateExportCount);
-    document.getElementById(id).addEventListener('input',updateExportCount);
+  renderHistory();renderChips();updateExportCount();
+  const filterIds=['fEmpresa','fArea','fSede','fCargo','fContrato','fSituacion','fGenero','fFechaDesde','fFechaHasta','fMesCumple'];
+  filterIds.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){el.addEventListener('change',updateExportCount);el.addEventListener('input',updateExportCount);}
   });
 });
 
@@ -461,7 +511,6 @@ function switchTab(tab){
 // ══════════════════════════════════════════
 function handleDrop(e){e.preventDefault();document.getElementById('uploadZone').classList.remove('dragover');[...e.dataTransfer.files].forEach(f=>processFile(f));}
 function handleFile(e){[...e.target.files].forEach(f=>processFile(f));e.target.value='';}
-
 function processFile(file){
   if(!file)return;
   if(loadedFiles.find(f=>f.name===file.name)){showToast('⚠️ "'+file.name+'" ya está cargado','w');return;}
@@ -474,7 +523,7 @@ function processFile(file){
       if(!json.length){showToast('⚠️ Archivo vacío','w');return;}
       const rows=json.map(row=>{const n={};for(const k in row)n[k.trim()]=row[k];return n;});
       loadedFiles.push({name:file.name,rows,count:rows.length,date:new Date().toLocaleDateString('es-PE',{day:'2-digit',month:'short',year:'numeric'})});
-      rebuildCombined();saveFiles();renderFileList();updateStats();updateMemoryBar();populateFilters();updateExportCount();
+      rebuildCombined();detectCols();saveFiles();renderFileList();updateStats();updateMemoryBar();populateFilters();updateExportCount();
       chatHistory=[];document.getElementById('messages').innerHTML='';addWelcome();
       showToast('✅ "'+file.name+'" · '+rows.length.toLocaleString()+' registros');
     }catch(err){showToast('❌ '+err.message,'w');}
@@ -482,10 +531,26 @@ function processFile(file){
   r.readAsBinaryString(file);
 }
 function rebuildCombined(){employeeData=loadedFiles.flatMap(f=>f.rows);}
-function saveFiles(){try{localStorage.setItem(SK.files,JSON.stringify(loadedFiles));}catch(e){showToast('⚠️ Sin espacio','w');}}
-function removeFile(i){const n=loadedFiles[i].name;loadedFiles.splice(i,1);rebuildCombined();saveFiles();renderFileList();updateStats();updateMemoryBar();populateFilters();updateExportCount();if(employeeData.length>0){chatHistory=[];document.getElementById('messages').innerHTML='';addWelcome();}else{document.getElementById('statsBar').style.display='none';document.getElementById('filesSection').style.display='none';document.getElementById('statusDot').classList.remove('active');document.getElementById('statusText').textContent='Sin datos';}showToast('🗑 "'+n+'" eliminado');}
-function clearAllData(){if(!confirm('¿Eliminar TODOS los archivos?'))return;loadedFiles=[];employeeData=[];localStorage.removeItem(SK.files);document.getElementById('filesSection').style.display='none';document.getElementById('statsBar').style.display='none';document.getElementById('statusDot').classList.remove('active');document.getElementById('statusText').textContent='Sin datos';document.getElementById('messages').innerHTML='';chatHistory=[];showToast('🗑 Datos eliminados');}
-
+function saveFiles(){try{localStorage.setItem(SK.files,JSON.stringify(loadedFiles));}catch(e){showToast('⚠️ Sin espacio en navegador','w');}}
+function removeFile(i){
+  const n=loadedFiles[i].name;loadedFiles.splice(i,1);rebuildCombined();
+  if(employeeData.length>0){detectCols();chatHistory=[];document.getElementById('messages').innerHTML='';addWelcome();}
+  else{COLS={};document.getElementById('colDetect').style.display='none';document.getElementById('statsBar').style.display='none';document.getElementById('filesSection').style.display='none';document.getElementById('statusDot').classList.remove('active');document.getElementById('statusText').textContent='Sin datos';}
+  saveFiles();renderFileList();updateStats();updateMemoryBar();populateFilters();updateExportCount();
+  showToast('🗑 "'+n+'" eliminado');
+}
+function clearAllData(){
+  if(!confirm('¿Eliminar TODOS los archivos?'))return;
+  loadedFiles=[];employeeData=[];COLS={};
+  localStorage.removeItem(SK.files);
+  document.getElementById('filesSection').style.display='none';
+  document.getElementById('statsBar').style.display='none';
+  document.getElementById('colDetect').style.display='none';
+  document.getElementById('statusDot').classList.remove('active');
+  document.getElementById('statusText').textContent='Sin datos';
+  document.getElementById('messages').innerHTML='';
+  chatHistory=[];showToast('🗑 Datos eliminados');
+}
 function renderFileList(){
   const section=document.getElementById('filesSection');
   if(!loadedFiles.length){section.style.display='none';return;}
@@ -506,30 +571,20 @@ function renderFileList(){
 function updateStats(){
   if(!employeeData.length)return;
   const total=employeeData.length;
-  const ceses=employeeData.filter(r=>{const fc=r['FECHA_CESE']||'';const cm=r['COD_MOTIVO_ SEPARACION']||r['COD_MOTIVO_SEPARACION']||'';return(fc&&fc.toString().trim())||(cm&&cm.toString().trim());}).length;
-  const sexCol=detectSexCol();
-  const mujeres=employeeData.filter(r=>isFemale(r,sexCol)).length;
+  const cesTotal=employeeData.filter(r=>isCese(r)).length;
+  const mujeres=employeeData.filter(r=>isFemale(r)).length;
   document.getElementById('sTotal').textContent=total.toLocaleString();
-  document.getElementById('sActivos').textContent=(total-ceses).toLocaleString();
-  document.getElementById('sCeses').textContent=ceses.toLocaleString();
+  document.getElementById('sActivos').textContent=(total-cesTotal).toLocaleString();
+  document.getElementById('sCeses').textContent=cesTotal.toLocaleString();
   document.getElementById('sMujeres').textContent=mujeres.toLocaleString();
   document.getElementById('sHombres').textContent=(total-mujeres).toLocaleString();
-  document.getElementById('sEmpresas').textContent=new Set(employeeData.map(r=>r['EMPRESA']||'')).size;
+  document.getElementById('sEmpresas').textContent=new Set(employeeData.map(r=>r[COLS.empresa]||'')).size;
+  document.getElementById('sAreas').textContent=new Set(employeeData.map(r=>r[COLS.area]||'')).size;
+  document.getElementById('sSedes').textContent=new Set(employeeData.map(r=>r[COLS.sede]||'')).size;
   document.getElementById('statsBar').style.display='flex';
   document.getElementById('statusDot').classList.add('active');
   document.getElementById('statusText').textContent=total.toLocaleString()+' registros';
 }
-
-function detectSexCol(){
-  const cols=Object.keys(employeeData[0]||{});
-  return cols.find(c=>c.match(/sexo|genero|género|sex/i))||'COD_SEXO';
-}
-
-function isFemale(r,col){
-  const v=(r[col]||'').toString().trim().toUpperCase();
-  return v==='F'||v==='FEM'||v==='FEMENINO'||v==='MUJER'||v==='2';
-}
-
 function updateMemoryBar(){
   try{const used=new Blob([localStorage.getItem(SK.files)||'']).size;const pct=Math.min((used/(5*1024*1024))*100,100);document.getElementById('memoryBar').style.width=pct+'%';document.getElementById('memoryText').textContent=(used/1024/1024).toFixed(2)+' / 5 MB';document.getElementById('memoryBar').style.background=pct>80?'linear-gradient(90deg,#f59e0b,var(--accent2))':'linear-gradient(90deg,var(--accent),var(--accent3))';}catch(e){}
 }
@@ -537,66 +592,77 @@ function updateMemoryBar(){
 // ══════════════════════════════════════════
 //  DASHBOARD
 // ══════════════════════════════════════════
-const CHART_COLORS=['#6c63ff','#43e8b0','#ff6584','#f59e0b','#06b6d4','#a78bfa','#ec4899','#10b981','#f97316','#8b5cf6'];
-
+const CC=['#6c63ff','#43e8b0','#ff6584','#f59e0b','#06b6d4','#a78bfa','#ec4899','#10b981','#f97316','#8b5cf6'];
 function renderDashboard(){
   if(!employeeData.length){document.getElementById('noDashData').style.display='block';document.getElementById('chartsContainer').style.display='none';return;}
   document.getElementById('noDashData').style.display='none';
   document.getElementById('chartsContainer').style.display='block';
-
-  const ceses=employeeData.filter(r=>{const fc=r['FECHA_CESE']||'';const cm=r['COD_MOTIVO_ SEPARACION']||r['COD_MOTIVO_SEPARACION']||'';return(fc&&fc.toString().trim())||(cm&&cm.toString().trim());});
-  const activos=employeeData.length-ceses.length;
-  const sexCol=detectSexCol();
-  const mujeres=employeeData.filter(r=>isFemale(r,sexCol)).length;
-  const hombres=employeeData.length-mujeres;
-
-  mkChart('cActivos','doughnut',['Activos','Con Cese'],[activos,ceses.length],[CHART_COLORS[0],CHART_COLORS[2]]);
-  mkChart('cGenero','doughnut',['Mujeres','Hombres'],[mujeres,hombres],[CHART_COLORS[2],CHART_COLORS[0]]);
-
-  const topEmp=topN('EMPRESA',8);
-  mkChart('cEmpresas','bar',topEmp.map(x=>x[0]),topEmp.map(x=>x[1]),CHART_COLORS);
-
-  const contr=topN('TIPO_CONTRATO',8);
-  mkChart('cContratos','doughnut',contr.map(x=>x[0]),contr.map(x=>x[1]),CHART_COLORS);
-
-  const topArea=topN('AREA',10);
-  mkChart('cAreas','bar',topArea.map(x=>x[0]),topArea.map(x=>x[1]),[CHART_COLORS[1]],true);
-
-  const mesCount={};
-  const nowD=new Date();
+  const ces=employeeData.filter(r=>isCese(r)).length;
+  const act=employeeData.length-ces;
+  const muj=employeeData.filter(r=>isFemale(r)).length;
+  mkChart('cActivos','doughnut',['Activos','Con Cese'],[act,ces],[CC[0],CC[2]]);
+  mkChart('cGenero','doughnut',['Mujeres','Hombres'],[muj,employeeData.length-muj],[CC[2],CC[0]]);
+  const topEmp=topN(COLS.empresa||'EMPRESA',8);
+  mkChart('cEmpresas','bar',topEmp.map(x=>x[0]),topEmp.map(x=>x[1]),CC);
+  const contr=topN(COLS.contrato||'TIPO_CONTRATO',8);
+  mkChart('cContratos','doughnut',contr.map(x=>x[0]),contr.map(x=>x[1]),CC);
+  const topArea=topN(COLS.area||'AREA',10);
+  mkChart('cAreas','bar',topArea.map(x=>x[0]),topArea.map(x=>x[1]),[CC[1]],true);
+  // Ingresos por mes
+  const mesCount={};const nowD=new Date();
   employeeData.forEach(r=>{
-    const raw=r['FECHA_INGRESO_ EMPRESA']||r['FECHA_INGRESO_EMPRESA']||'';
-    if(!raw)return;
-    const d=new Date(raw);if(isNaN(d))return;
-    const diff=(nowD-d)/(1000*60*60*24*30);if(diff>13)return;
+    const d=parseDate(r[COLS.ingreso]);if(!d)return;
+    if((nowD-d)/(1000*60*60*24*30)>13)return;
     const key=d.toLocaleDateString('es-PE',{month:'short',year:'numeric'});
     mesCount[key]=(mesCount[key]||0)+1;
   });
-  const mesKeys=Object.keys(mesCount).slice(-12);
-  mkChart('cIngresos','line',mesKeys,mesKeys.map(k=>mesCount[k]),[CHART_COLORS[0]],true);
+  const mk=Object.keys(mesCount).slice(-12);
+  mkChart('cIngresos','line',mk,mk.map(k=>mesCount[k]),[CC[0]],false,true);
+  // Sedes
+  if(COLS.sede){
+    const topSede=topN(COLS.sede,8);
+    document.getElementById('cardSedes').style.display='block';
+    mkChart('cSedes','doughnut',topSede.map(x=>x[0]),topSede.map(x=>x[1]),CC);
+  }
+  // Cargos
+  if(COLS.cargo){
+    const topCargo=topN(COLS.cargo,10);
+    document.getElementById('cardCargos').style.display='block';
+    mkChart('cCargos','bar',topCargo.map(x=>x[0]),topCargo.map(x=>x[1]),[CC[3]],true);
+  }
+  // Cumpleaños por mes
+  if(COLS.nacimiento){
+    const cumMes=Array(12).fill(0);
+    employeeData.forEach(r=>{const d=parseDate(r[COLS.nacimiento]);if(d)cumMes[d.getMonth()]++;});
+    document.getElementById('cardCumples').style.display='block';
+    mkChart('cCumples','bar',['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],cumMes,CC);
+  }
+  // Antigüedad
+  if(COLS.ingreso){
+    const bkt={'-1 año':0,'1-2 años':0,'3-5 años':0,'6-10 años':0,'11-20 años':0,'20+ años':0};
+    employeeData.forEach(r=>{
+      const a=calcAntigüedad(r);if(a===null)return;
+      if(a<1)bkt['-1 año']++;
+      else if(a<3)bkt['1-2 años']++;
+      else if(a<6)bkt['3-5 años']++;
+      else if(a<11)bkt['6-10 años']++;
+      else if(a<21)bkt['11-20 años']++;
+      else bkt['20+ años']++;
+    });
+    document.getElementById('cardAntig').style.display='block';
+    mkChart('cAntig','bar',Object.keys(bkt),Object.values(bkt),CC);
+  }
 }
-
 function topN(field,n){
-  const o={};employeeData.forEach(r=>{const v=r[field]||'N/A';if(v&&v!=='N/A')o[v]=(o[v]||0)+1;});
+  const o={};employeeData.forEach(r=>{const v=r[field]||'';if(v)o[v]=(o[v]||0)+1;});
   return Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,n);
 }
-
-function mkChart(id,type,labels,data,colors,horizontal){
+function mkChart(id,type,labels,data,colors,horizontal,isLine){
   if(charts[id])charts[id].destroy();
-  const ctx=document.getElementById(id).getContext('2d');
-  const bgColors=type==='line'?'transparent':(Array.isArray(colors)&&colors.length===data.length?colors:data.map((_,i)=>CHART_COLORS[i%CHART_COLORS.length]));
-  charts[id]=new Chart(ctx,{
-    type,
-    data:{labels,datasets:[{data,backgroundColor:bgColors,borderColor:type==='line'?CHART_COLORS[0]:undefined,borderWidth:type==='line'?2:1,fill:type==='line',tension:.4,pointBackgroundColor:CHART_COLORS[0]}]},
-    options:{
-      responsive:true,maintainAspectRatio:true,
-      indexAxis:horizontal&&type==='bar'?'y':'x',
-      plugins:{legend:{display:type==='doughnut',labels:{color:'#e8e8f0',font:{family:'DM Sans'}}},tooltip:{callbacks:{label:ctx=>' '+ctx.parsed+(type==='doughnut'?'':' personas')}}},
-      scales:type!=='doughnut'?{x:{ticks:{color:'#6b6b80',font:{size:10}},grid:{color:'#1e1e2e'}},y:{ticks:{color:'#6b6b80',font:{size:10}},grid:{color:'#1e1e2e'}}}:{},
-    }
-  });
+  const ctx=document.getElementById(id);if(!ctx)return;
+  const bg=type==='doughnut'?data.map((_,i)=>CC[i%CC.length]):type==='line'?'transparent':(colors.length===data.length?colors:data.map((_,i)=>CC[i%CC.length]));
+  charts[id]=new Chart(ctx.getContext('2d'),{type,data:{labels,datasets:[{data,backgroundColor:bg,borderColor:type==='line'?CC[0]:undefined,borderWidth:type==='line'?2:1,fill:isLine,tension:.4,pointBackgroundColor:CC[0]}]},options:{responsive:true,maintainAspectRatio:true,indexAxis:horizontal&&type==='bar'?'y':'x',plugins:{legend:{display:type==='doughnut',labels:{color:'#e8e8f0',font:{family:'DM Sans'}}},tooltip:{callbacks:{label:ctx=>' '+ctx.parsed+(type==='doughnut'?'':' personas')}}},scales:type!=='doughnut'?{x:{ticks:{color:'#6b6b80',font:{size:10}},grid:{color:'#1e1e2e'}},y:{ticks:{color:'#6b6b80',font:{size:10}},grid:{color:'#1e1e2e'}}}:{}}});
 }
-
 function exportDashboardPDF(){showToast('💡 Usa Ctrl+P → Guardar como PDF para exportar el dashboard');}
 
 // ══════════════════════════════════════════
@@ -605,174 +671,110 @@ function exportDashboardPDF(){showToast('💡 Usa Ctrl+P → Guardar como PDF pa
 function populateFilters(){
   if(!employeeData.length)return;
   const fill=(id,field)=>{
-    const sel=document.getElementById(id);const cur=sel.value;
+    if(!field)return;
+    const sel=document.getElementById(id);if(!sel)return;
+    const cur=sel.value;
     const vals=[...new Set(employeeData.map(r=>r[field]||'').filter(v=>v))].sort();
     sel.innerHTML='<option value="">Todas</option>'+vals.map(v=>`<option value="${v}">${v}</option>`).join('');
     if(cur)sel.value=cur;
   };
-  fill('fEmpresa','EMPRESA');fill('fArea','AREA');fill('fSede','SEDE');
+  fill('fEmpresa',COLS.empresa);fill('fArea',COLS.area);fill('fSede',COLS.sede);
+  fill('fCargo',COLS.cargo);fill('fContrato',COLS.contrato);
 }
-
 function getFilteredData(){
   const emp=document.getElementById('fEmpresa').value;
   const area=document.getElementById('fArea').value;
   const sede=document.getElementById('fSede').value;
+  const cargo=document.getElementById('fCargo').value;
+  const contrato=document.getElementById('fContrato').value;
   const sit=document.getElementById('fSituacion').value;
   const gen=document.getElementById('fGenero').value;
   const desde=document.getElementById('fFechaDesde').value;
   const hasta=document.getElementById('fFechaHasta').value;
-  const sexCol=detectSexCol();
+  const mesCumple=parseInt(document.getElementById('fMesCumple').value)||0;
   return employeeData.filter(r=>{
-    if(emp&&r['EMPRESA']!==emp)return false;
-    if(area&&r['AREA']!==area)return false;
-    if(sede&&r['SEDE']!==sede)return false;
-    if(sit==='activo'){const fc=r['FECHA_CESE']||'';const cm=r['COD_MOTIVO_ SEPARACION']||r['COD_MOTIVO_SEPARACION']||'';if((fc&&fc.toString().trim())||(cm&&cm.toString().trim()))return false;}
-    if(sit==='cese'){const fc=r['FECHA_CESE']||'';const cm=r['COD_MOTIVO_ SEPARACION']||r['COD_MOTIVO_SEPARACION']||'';if(!(fc&&fc.toString().trim())&&!(cm&&cm.toString().trim()))return false;}
-    if(gen){const v=(r[sexCol]||'').toString().trim().toUpperCase();const isF=v==='F'||v==='FEM'||v==='FEMENINO'||v==='MUJER'||v==='2';if(gen==='F'&&!isF)return false;if(gen==='M'&&isF)return false;}
-    if(desde||hasta){const raw=r['FECHA_INGRESO_ EMPRESA']||r['FECHA_INGRESO_EMPRESA']||'';const d=new Date(raw);if(isNaN(d))return false;if(desde&&d<new Date(desde))return false;if(hasta&&d>new Date(hasta))return false;}
+    if(emp&&r[COLS.empresa]!==emp)return false;
+    if(area&&r[COLS.area]!==area)return false;
+    if(sede&&r[COLS.sede]!==sede)return false;
+    if(cargo&&r[COLS.cargo]!==cargo)return false;
+    if(contrato&&r[COLS.contrato]!==contrato)return false;
+    if(sit==='activo'&&isCese(r))return false;
+    if(sit==='cese'&&!isCese(r))return false;
+    if(gen){const isF=isFemale(r);if(gen==='F'&&!isF)return false;if(gen==='M'&&isF)return false;}
+    if(desde||hasta){const d=parseDate(r[COLS.ingreso]);if(!d)return false;if(desde&&d<new Date(desde))return false;if(hasta&&d>new Date(hasta))return false;}
+    if(mesCumple&&COLS.nacimiento){const d=parseDate(r[COLS.nacimiento]);if(!d)return false;if((d.getMonth()+1)!==mesCumple)return false;}
     return true;
   });
 }
-
 function updateExportCount(){
   const filtered=getFilteredData();
   document.getElementById('exportCount').textContent=filtered.length.toLocaleString();
   const preview=document.getElementById('filterPreview');
-  const content=document.getElementById('filterPreviewContent');
   if(filtered.length>0&&filtered.length<employeeData.length){
     preview.style.display='block';
     const lines=[];
-    const emp=document.getElementById('fEmpresa').value;const area=document.getElementById('fArea').value;const sit=document.getElementById('fSituacion').value;const gen=document.getElementById('fGenero').value;
-    if(emp)lines.push('Empresa: '+emp);if(area)lines.push('Área: '+area);if(sit)lines.push('Situación: '+sit);if(gen)lines.push('Género: '+(gen==='F'?'Femenino':'Masculino'));
-    const sexCol=detectSexCol();
-    const m=filtered.filter(r=>isFemale(r,sexCol)).length;
-    lines.push('Resultados: '+filtered.length+' registros ('+m+' mujeres / '+(filtered.length-m)+' hombres)');
-    content.innerHTML=lines.map(l=>'• '+l).join('<br>');
-  } else { preview.style.display='none'; }
+    ['fEmpresa','fArea','fSede','fCargo','fSituacion','fGenero'].forEach(id=>{const el=document.getElementById(id);if(el&&el.value)lines.push(el.options[el.selectedIndex].text+': '+el.value);});
+    const muj=filtered.filter(r=>isFemale(r)).length;
+    lines.push(`Resultados: ${filtered.length} registros (${muj} mujeres / ${filtered.length-muj} hombres)`);
+    document.getElementById('filterPreviewContent').innerHTML=lines.map(l=>'• '+l).join('<br>');
+  }else{preview.style.display='none';}
 }
-
-function resetFilters(){['fEmpresa','fArea','fSede','fSituacion','fGenero'].forEach(id=>document.getElementById(id).value='');document.getElementById('fFechaDesde').value='';document.getElementById('fFechaHasta').value='';updateExportCount();}
-
-function exportFiltered(){
-  const data=getFilteredData();
-  if(!data.length){showToast('⚠️ No hay datos con esos filtros','w');return;}
-  downloadExcel(data,'hr_filtrado_'+Date.now()+'.xlsx');
-  showToast('✅ Descargando '+data.length.toLocaleString()+' registros');
-}
-function exportAll(){
-  if(!employeeData.length){showToast('⚠️ No hay datos','w');return;}
-  downloadExcel(employeeData,'hr_completo_'+Date.now()+'.xlsx');
-  showToast('✅ Descargando '+employeeData.length.toLocaleString()+' registros');
-}
-
+function resetFilters(){['fEmpresa','fArea','fSede','fCargo','fContrato','fSituacion','fGenero','fMesCumple'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('fFechaDesde').value='';document.getElementById('fFechaHasta').value='';updateExportCount();}
+function exportFiltered(){const data=getFilteredData();if(!data.length){showToast('⚠️ No hay datos','w');return;}downloadExcel(data,'hr_filtrado_'+Date.now()+'.xlsx');showToast('✅ Descargando '+data.length.toLocaleString()+' registros');}
+function exportAll(){if(!employeeData.length){showToast('⚠️ No hay datos','w');return;}downloadExcel(employeeData,'hr_completo_'+Date.now()+'.xlsx');showToast('✅ Descargando '+employeeData.length.toLocaleString()+' registros');}
 function downloadExcel(data,filename){
   const ws=XLSX.utils.json_to_sheet(data);
-  const wb=XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb,ws,'Personal');
-  const cols=Object.keys(data[0]||{});
-  ws['!cols']=cols.map(c=>({wch:Math.min(Math.max(c.length,10),40)}));
+  const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Personal');
+  const cols=Object.keys(data[0]||{});ws['!cols']=cols.map(c=>({wch:Math.min(Math.max(c.length,10),40)}));
   XLSX.writeFile(wb,filename);
+}
+function exportChatResult(text){
+  const lines=text.replace(/<[^>]+>/g,'').split('\n').filter(l=>l.trim());
+  const rows=lines.map(l=>({Resultado:l}));
+  downloadExcel(rows,'hr_resultado_'+Date.now()+'.xlsx');
+  showToast('✅ Resultado exportado');
 }
 
 // ══════════════════════════════════════════
 //  CHAT
 // ══════════════════════════════════════════
 function addWelcome(){
-  const m={role:'ai',text:`Base actualizada: **${employeeData.length.toLocaleString()} registros** de **${loadedFiles.length}** archivo(s). IA: **${activeAI.toUpperCase()}**.\n\nPuedes hacer preguntas complejas como: "¿Cuántas mujeres hay en operaciones de Repsol en enero?" o "Ceses en febrero 2024 en Lima". ¿Qué deseas consultar?`,time:now()};
+  const colList=Object.entries(COLS).filter(([,v])=>v).map(([k])=>k).join(', ');
+  const m={role:'ai',text:`Base actualizada: **${employeeData.length.toLocaleString()} registros** · **${loadedFiles.length}** archivo(s) · IA: **${activeAI.toUpperCase()}**\n\nColumnas detectadas: **${colList||'básicas'}**\n\nPuedo responder sobre: cumpleaños por mes, antigüedad, cargos, sedes, ceses, ingresos, género, empresa, área, turnos y más. ¿Qué deseas consultar?`,time:now()};
   chatHistory.push(m);renderMsg(m);
 }
-function askS(el){if(!employeeData.length){switchTab('datos');return;}document.getElementById('queryInput').value=el.textContent;sendQuery();}
+function askS(el){if(!employeeData.length){switchTab('datos');return;}document.getElementById('queryInput').value=el.textContent.trim();sendQuery();}
 
 // ══════════════════════════════════════════
-//  MANEJO DE ERRORES DE IA — MEJORADO
+//  MANEJO DE ERRORES IA
 // ══════════════════════════════════════════
-
-/**
- * Parsea el error de API y devuelve un objeto amigable
- * { type: 'quota'|'auth'|'network'|'unknown', waitSeconds, message }
- */
-function parseAPIError(err, aiName){
-  const msg = (err.message||'').toLowerCase();
-
-  // Cuota excedida (Gemini free tier)
-  const quotaMatch = err.message.match(/please retry in ([\d.]+)s/i);
-  if(quotaMatch || msg.includes('quota') || msg.includes('rate limit') || msg.includes('resource_exhausted')){
-    const secs = quotaMatch ? Math.ceil(parseFloat(quotaMatch[1])) : 60;
-    return {
-      type:'quota',
-      waitSeconds: secs,
-      friendly: `El plan gratuito de **${aiName}** alcanzó su límite de solicitudes.`,
-      tip: `Puedes reintentar en ~${secs} segundos, o cambiar a **Modo Local** en Config.`
-    };
+function parseAPIError(err,aiName){
+  if(err.type){
+    const secs=err.retryAfter||60;
+    if(err.type==='quota')return{type:'quota',waitSeconds:secs,friendly:`El plan gratuito de **${aiName}** alcanzó su límite de solicitudes.`,tip:`Puedes reintentar en ~${secs} segundos, o cambiar a **Modo Local** en Config.`};
+    if(err.type==='auth')return{type:'auth',waitSeconds:0,friendly:`La API Key de **${aiName}** no es válida o venció.`,tip:`Revisa tu clave en la pestaña **Config** y vuelve a guardarla.`};
   }
-
-  // Error de autenticación
-  if(msg.includes('api key') || msg.includes('unauthorized') || msg.includes('invalid_api_key') || msg.includes('403')){
-    return {
-      type:'auth',
-      waitSeconds: 0,
-      friendly: `La API Key de **${aiName}** no es válida o venció.`,
-      tip: `Revisa tu clave en la pestaña **Config** y vuelve a guardarla.`
-    };
-  }
-
-  // Sin internet / timeout
-  if(msg.includes('failed to fetch') || msg.includes('network') || msg.includes('timeout')){
-    return {
-      type:'network',
-      waitSeconds: 0,
-      friendly: `No se pudo conectar con **${aiName}**.`,
-      tip: `Verifica tu conexión a internet e intenta de nuevo.`
-    };
-  }
-
-  // Genérico
-  return {
-    type:'unknown',
-    waitSeconds: 0,
-    friendly: `**${aiName}** devolvió un error inesperado.`,
-    tip: `Intenta nuevamente o cambia a Modo Local.`
-  };
+  const msg=(err.message||'').toLowerCase();
+  const qm=err.message.match(/retry in ([\d.]+)s/i);
+  if(qm||msg.includes('quota')||msg.includes('rate limit')||msg.includes('resource_exhausted'))return{type:'quota',waitSeconds:qm?Math.ceil(parseFloat(qm[1])):60,friendly:`El plan gratuito de **${aiName}** alcanzó su límite.`,tip:`Espera o cambia a **Modo Local**.`};
+  if(msg.includes('api key')||msg.includes('unauthorized')||msg.includes('401')||msg.includes('403'))return{type:'auth',waitSeconds:0,friendly:`La API Key de **${aiName}** no es válida.`,tip:`Revisa tu clave en **Config**.`};
+  if(msg.includes('failed to fetch')||msg.includes('network'))return{type:'network',waitSeconds:0,friendly:`No se pudo conectar con **${aiName}**.`,tip:`Verifica tu conexión a internet.`};
+  return{type:'unknown',waitSeconds:0,friendly:`**${aiName}** no pudo procesar la solicitud.`,tip:`Intenta nuevamente o cambia a Modo Local.`};
 }
-
-function showQuotaBanner(secs, query){
-  lastFailedQ = query;
-  const banner = document.getElementById('quotaBanner');
-  const msg = document.getElementById('quotaMsg');
-  const btn = document.getElementById('quotaRetryBtn');
-  const countdown = document.getElementById('quotaCountdown');
-  const aiLabels = {gemini:'Gemini', claude:'Claude', openai:'ChatGPT'};
-
-  msg.textContent = `Límite de ${aiLabels[activeAI]||'IA'} alcanzado. Respuesta local activa.`;
-  banner.style.display = 'flex';
-  btn.disabled = true;
-
-  let remaining = secs;
-  countdown.textContent = remaining;
-
-  if(quotaRetryTimer) clearInterval(quotaRetryTimer);
-  quotaRetryTimer = setInterval(()=>{
-    remaining--;
-    countdown.textContent = remaining;
-    if(remaining <= 0){
-      clearInterval(quotaRetryTimer);
-      btn.disabled = false;
-      countdown.textContent = '0';
-    }
-  }, 1000);
+function showQuotaBanner(secs,q){
+  lastFailedQ=q;
+  const banner=document.getElementById('quotaBanner');
+  const ai={gemini:'Gemini',claude:'Claude',openai:'ChatGPT',groq:'Groq'};
+  document.getElementById('quotaMsg').textContent=`Límite de ${ai[activeAI]||'IA'} alcanzado. Mostrando respuesta local.`;
+  banner.style.display='flex';
+  const btn=document.getElementById('quotaRetryBtn');
+  const cd=document.getElementById('quotaCountdown');
+  btn.disabled=true;let rem=secs;cd.textContent=rem;
+  if(quotaRetryTimer)clearInterval(quotaRetryTimer);
+  quotaRetryTimer=setInterval(()=>{rem--;cd.textContent=rem;if(rem<=0){clearInterval(quotaRetryTimer);btn.disabled=false;}},1000);
 }
-
-function hideQuotaBanner(){
-  document.getElementById('quotaBanner').style.display='none';
-  if(quotaRetryTimer){ clearInterval(quotaRetryTimer); quotaRetryTimer=null; }
-}
-
-async function retryWithAI(){
-  if(!lastFailedQ) return;
-  hideQuotaBanner();
-  document.getElementById('queryInput').value = lastFailedQ;
-  await sendQuery();
-}
+function hideQuotaBanner(){document.getElementById('quotaBanner').style.display='none';if(quotaRetryTimer){clearInterval(quotaRetryTimer);quotaRetryTimer=null;}}
+async function retryWithAI(){if(!lastFailedQ)return;hideQuotaBanner();document.getElementById('queryInput').value=lastFailedQ;await sendQuery();}
 
 async function sendQuery(){
   if(!employeeData.length){switchTab('datos');return;}
@@ -782,96 +784,117 @@ async function sendQuery(){
   document.getElementById('sendBtn').disabled=true;
   const tid=addTyping();
   try{
-    let ans, usedLocal=false;
-    const key=getKey(activeAI);
-    if(activeAI==='gemini'&&key) ans=await qGemini(q);
-    else if(activeAI==='claude'&&key) ans=await qClaude(q);
-    else if(activeAI==='openai'&&key) ans=await qOpenAI(q);
-    else { ans=localQuery(q); usedLocal=true; }
-
-    removeTyping(tid);
-    hideQuotaBanner();
-    const am={role:'ai',text:ans,time:now()};
-    chatHistory.push(am);renderMsg(am);saveSession();
+    let ans;const key=getKey(activeAI);
+    if(activeAI==='gemini'&&key)ans=await qGemini(q);
+    else if(activeAI==='groq'&&key)ans=await qGroq(q);
+    else if(activeAI==='claude'&&key)ans=await qClaude(q);
+    else if(activeAI==='openai'&&key)ans=await qOpenAI(q);
+    else ans=localQuery(q);
+    removeTyping(tid);hideQuotaBanner();
+    const am={role:'ai',text:ans,time:now(),rawText:ans};chatHistory.push(am);renderMsg(am);saveSession();
   }catch(e){
     removeTyping(tid);
-    const aiLabels = {gemini:'Gemini', claude:'Claude', openai:'ChatGPT', local:'Local'};
-    const parsed = parseAPIError(e, aiLabels[activeAI]||activeAI);
-    const localAns = localQuery(q);
-
-    // Mostrar banner de cuota si aplica
-    if(parsed.type === 'quota'){
-      showQuotaBanner(parsed.waitSeconds, q);
-    }
-
-    // Mensaje amigable en el chat — sin el error técnico crudo
-    const aiResponse = buildErrorMsg(parsed, localAns);
-    const am={role:'ai',text:aiResponse,time:now()};
+    const ai={gemini:'Gemini',groq:'Groq',claude:'Claude',openai:'ChatGPT',local:'Local'};
+    const parsed=parseAPIError(e,ai[activeAI]||activeAI);
+    const localAns=localQuery(q);
+    if(parsed.type==='quota')showQuotaBanner(parsed.waitSeconds,q);
+    const am={role:'ai',text:`⚠️ ${parsed.friendly}\n💡 ${parsed.tip}\n\n---\n**Respuesta local:**\n\n${localAns}`,time:now(),rawText:localAns};
     chatHistory.push(am);renderMsg(am);saveSession();
   }
   document.getElementById('sendBtn').disabled=false;
 }
 
-function buildErrorMsg(parsed, localAns){
-  // Construye un texto de respuesta limpio para el chat
-  let out = '';
-  out += `⚠️ ${parsed.friendly}\n`;
-  out += `💡 ${parsed.tip}\n\n`;
-  out += `---\n`;
-  out += `**Respuesta local:**\n\n${localAns}`;
-  return out;
-}
-
 function renderMsg(m){
   const el=document.createElement('div');el.className='msg '+m.role;
-  el.innerHTML=`<div class="msg-avatar">${m.role==='user'?'👤':'🤖'}</div><div><div class="msg-bubble">${fmt(m.text)}</div><div class="msg-time">${m.time}</div></div>`;
+  const actions=m.role==='ai'?`<div class="msg-actions"><button class="msg-act-btn" onclick="exportChatResult(this.closest('.msg').querySelector('.msg-bubble').innerHTML)">📥 Exportar</button><button class="msg-act-btn" onclick="navigator.clipboard.writeText('${(m.rawText||m.text).replace(/'/g,"\\'")}');showToast('📋 Copiado')">📋 Copiar</button></div>`:'';
+  el.innerHTML=`<div class="msg-avatar">${m.role==='user'?'👤':'🤖'}</div><div><div class="msg-bubble">${fmt(m.text)}</div><div class="msg-time">${m.time}</div>${actions}</div>`;
   const msgs=document.getElementById('messages');msgs.appendChild(el);msgs.scrollTop=msgs.scrollHeight;
 }
-
-function fmt(t){
-  return t
-    .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
-    .replace(/```([\s\S]*?)```/g,'<div class="highlight">$1</div>')
-    .replace(/^---$/gm,'<hr class="err-divider">')
-    .replace(/\n/g,'<br>');
-}
-
+function fmt(t){return t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/```([\s\S]*?)```/g,'<div class="highlight">$1</div>').replace(/^---$/gm,'<hr class="err-divider">').replace(/\n/g,'<br>');}
 function addTyping(){const id='t'+Date.now();const el=document.createElement('div');el.className='msg ai';el.id=id;el.innerHTML='<div class="msg-avatar">🤖</div><div class="msg-bubble"><div class="typing"><span></span><span></span><span></span></div></div>';const msgs=document.getElementById('messages');msgs.appendChild(el);msgs.scrollTop=msgs.scrollHeight;return id;}
 function removeTyping(id){const el=document.getElementById(id);if(el)el.remove();}
 function clearChat(){if(chatHistory.filter(m=>m.role==='user').length>0)saveSession();chatHistory=[];document.getElementById('messages').innerHTML='';hideQuotaBanner();if(employeeData.length>0)addWelcome();}
 
 // ══════════════════════════════════════════
-//  CONSULTA LOCAL AVANZADA
+//  CONSULTA LOCAL COMPLETA
 // ══════════════════════════════════════════
 function localQuery(q){
   const ql=q.toLowerCase();
-  const sexCol=detectSexCol();
 
-  const empresa=extractMatch(ql,employeeData,'EMPRESA');
-  const area=extractMatch(ql,employeeData,'AREA');
-  const sede=extractMatch(ql,employeeData,'SEDE');
-  const dept=extractMatch(ql,employeeData,'DEPARTAMENTO');
+  // Intenciones
+  const esCumple   =ql.match(/cumple.*año|cumpleaño|birthday/);
+  const esCumpleMes=ql.match(/cumple.*mes actual|cumple.*este mes/);
+  const esCese     =ql.match(/cese|separac|baj[ao]s?|termina/);
+  const esIngreso  =ql.match(/ingres|incorpor|entrad|contrata/);
+  const esArea     =ql.match(/área|area|distribuc/);
+  const esEmpresa  =ql.match(/empresa/);
+  const esContrato =ql.match(/contrato/);
+  const esSede     =ql.match(/sede/);
+  const esCargo    =ql.match(/cargo|puesto|posici/);
+  const esTurno    =ql.match(/turno|jornada|shift/);
+  const esAntig    =ql.match(/antigüedad|antiguedad|años.*empresa|tiempo.*empresa|más de \d año|menos de \d año/);
+  const esListar   =ql.match(/lista|listar|nombres?|quiénes|quienes|quién/);
+  const esEdad     =ql.match(/edad|años.*vida|promedio.*edad/);
+  const esSalario  =ql.match(/salario|sueldo|remuner/);
+
+  // Filtros de contexto
+  const empresa=extractMatchField(ql,'empresa');
+  const area=extractMatchField(ql,'area');
+  const sede=extractMatchField(ql,'sede');
+  const cargo=extractMatchField(ql,'cargo');
+  const turno=extractMatchField(ql,'turno');
   const mes=extractMes(ql);
   const anio=extractAnio(ql);
   const esMujer=ql.match(/mujer|mujeres|femenin|female/);
   const esHombre=ql.match(/hombre|varones?|masculin|male/);
+  const aniosMin=ql.match(/más de (\d+) año/)?parseInt(ql.match(/más de (\d+) año/)[1]):null;
+  const aniosMax=ql.match(/menos de (\d+) año/)?parseInt(ql.match(/menos de (\d+) año/)[1]):null;
+  const mesActual=esCumpleMes?new Date().getMonth()+1:null;
+  const mesReal=mesActual||mes;
 
+  // Filtrar base
   let data=employeeData.filter(r=>{
-    if(empresa&&(r['EMPRESA']||'').toLowerCase().indexOf(empresa)<0)return false;
-    if(area&&(r['AREA']||'').toLowerCase().indexOf(area)<0)return false;
-    if(sede&&(r['SEDE']||'').toLowerCase().indexOf(sede)<0)return false;
-    if(dept&&(r['DEPARTAMENTO']||'').toLowerCase().indexOf(dept)<0)return false;
-    if(esMujer&&!isFemale(r,sexCol))return false;
-    if(esHombre&&isFemale(r,sexCol))return false;
+    if(empresa&&!(r[COLS.empresa]||'').toLowerCase().includes(empresa))return false;
+    if(area&&!(r[COLS.area]||'').toLowerCase().includes(area))return false;
+    if(sede&&!(r[COLS.sede]||'').toLowerCase().includes(sede))return false;
+    if(cargo&&!(r[COLS.cargo]||'').toLowerCase().includes(cargo))return false;
+    if(turno&&COLS.turno&&!(r[COLS.turno]||'').toLowerCase().includes(turno))return false;
+    if(esMujer&&!isFemale(r))return false;
+    if(esHombre&&isFemale(r))return false;
+    if(aniosMin!==null){const a=calcAntigüedad(r);if(a===null||a<=aniosMin)return false;}
+    if(aniosMax!==null){const a=calcAntigüedad(r);if(a===null||a>=aniosMax)return false;}
     return true;
   });
 
-  const campoFecha=ql.match(/cese|separac/)?['FECHA_CESE']:['FECHA_INGRESO_ EMPRESA','FECHA_INGRESO_EMPRESA'];
-  if(mes||anio){
+  // ── CUMPLEAÑOS ────────────────────────
+  if((esCumple||esCumpleMes)&&mesReal&&COLS.nacimiento){
+    const cumple=data.filter(r=>{
+      const d=parseDate(r[COLS.nacimiento]);
+      return d&&(d.getMonth()+1)===mesReal;
+    });
+    if(!cumple.length)return `No encontré personas que cumplan años en **${mesNombre(mesReal)}**${empresa?' en '+empresa:''}.`;
+    let resp=`🎂 **${cumple.length} persona(s) cumplen años en ${mesNombre(mesReal)}**${empresa?' en '+empresa:''}:\n\n`;
+    cumple.forEach((r,i)=>{
+      const d=parseDate(r[COLS.nacimiento]);
+      const dia=d?` · día **${d.getDate()}**`:'';
+      const emp=r[COLS.empresa]?` [${r[COLS.empresa]}]`:'';
+      const ar=r[COLS.area]?` · ${r[COLS.area]}`:'';
+      const cg=r[COLS.cargo]?` · ${r[COLS.cargo]}`:'';
+      resp+=`${i+1}. **${nombreCompleto(r)}**${dia}${emp}${ar}${cg}\n`;
+      if(i>=99){resp+=`\n_...y ${cumple.length-100} más_`;return false;}
+    });
+    return resp;
+  }
+  if((esCumple||esCumpleMes)&&!COLS.nacimiento)return '⚠️ No se detectó columna de fecha de nacimiento en los datos.';
+  if((esCumple||esCumpleMes)&&!mesReal)return '⚠️ Indica el mes de cumpleaños. Ej: "¿Quiénes cumplen años en marzo?"';
+
+  // ── FILTRO POR FECHA (ingreso/cese) ───
+  const campoFecha=esCese?[COLS.cese]:[COLS.ingreso];
+  if((mes||anio)&&!esCumple){
     data=data.filter(r=>{
       for(const cf of campoFecha){
-        const raw=r[cf]||'';if(!raw)continue;
-        const d=new Date(raw);if(isNaN(d))continue;
+        if(!cf)continue;const raw=r[cf]||'';if(!raw)continue;
+        const d=parseDate(raw);if(!d)continue;
         if(mes&&(d.getMonth()+1)!==mes)return false;
         if(anio&&d.getFullYear()!==anio)return false;
         return true;
@@ -880,55 +903,113 @@ function localQuery(q){
     });
   }
 
+  // ── ANTIGÜEDAD ────────────────────────
+  if(esAntig&&!aniosMin&&!aniosMax){
+    if(!COLS.ingreso)return '⚠️ No se detectó columna de fecha de ingreso.';
+    const bkt={'-1 año':0,'1-2 años':0,'3-5 años':0,'6-10 años':0,'11-20 años':0,'20+ años':0};
+    data.forEach(r=>{
+      const a=calcAntigüedad(r);if(a===null)return;
+      if(a<1)bkt['-1 año']++;else if(a<3)bkt['1-2 años']++;else if(a<6)bkt['3-5 años']++;else if(a<11)bkt['6-10 años']++;else if(a<21)bkt['11-20 años']++;else bkt['20+ años']++;
+    });
+    const total=data.filter(r=>calcAntigüedad(r)!==null).length;
+    let resp=`📆 **Distribución de antigüedad** (${total} con fecha de ingreso):\n\n`;
+    Object.entries(bkt).forEach(([k,v])=>resp+=`• ${k}: **${v}** (${total?Math.round(v/total*100):0}%)\n`);
+    return resp;
+  }
+
   const total=data.length;
-  const mujeres=data.filter(r=>isFemale(r,sexCol)).length;
-  const cesArr=data.filter(r=>{const fc=r['FECHA_CESE']||'';const cm=r['COD_MOTIVO_ SEPARACION']||r['COD_MOTIVO_SEPARACION']||'';return(fc&&fc.toString().trim())||(cm&&cm.toString().trim());});
+  const mujeres=data.filter(r=>isFemale(r)).length;
+  const cesArr=data.filter(r=>isCese(r));
+  const ctx=[empresa&&'empresa: '+empresa,area&&'área: '+area,sede&&'sede: '+sede,cargo&&'cargo: '+cargo,esMujer&&'género: femenino',esHombre&&'género: masculino',mes&&'mes: '+mesNombre(mes),anio&&'año: '+anio,aniosMin&&'antigüedad >'+aniosMin+' años',aniosMax&&'antigüedad <'+aniosMax+' años'].filter(Boolean).join(' · ');
 
-  const contexto=[empresa&&'empresa: '+empresa,area&&'área: '+area,sede&&'sede: '+sede,dept&&'departamento: '+dept,esMujer&&'género: femenino',esHombre&&'género: masculino',mes&&'mes: '+mesNombre(mes),anio&&'año: '+anio].filter(Boolean).join(' · ');
-
-  if(total===0)return `No encontré registros con los filtros: **${contexto||'ninguno'}**.\n\nIntenta con otros términos de búsqueda.`;
+  if(total===0)return `No encontré registros${ctx?' con filtros: **'+ctx+'**':''}.`;
 
   let resp='';
-  if(contexto)resp+=`Filtros aplicados: **${contexto}**\n\n`;
+  if(ctx)resp+=`Filtros: **${ctx}**\n\n`;
+
+  // Listado de personas
+  if(esListar){
+    resp+=`**${total} persona(s) encontradas:**\n`;
+    data.slice(0,80).forEach((r,i)=>{
+      const emp=r[COLS.empresa]?` [${r[COLS.empresa]}]`:'';
+      const ar=r[COLS.area]?' · '+r[COLS.area]:'';
+      const cg=r[COLS.cargo]?' · '+r[COLS.cargo]:'';
+      resp+=`${i+1}. **${nombreCompleto(r)}**${emp}${ar}${cg}\n`;
+    });
+    if(total>80)resp+=`\n_...y ${total-80} más. Usa Exportar para la lista completa._`;
+    return resp;
+  }
 
   if(ql.match(/cuántos|cuantos|cantidad|total|hay/)){
-    resp+=`**${total.toLocaleString()}** trabajadores encontrados.\n`;
+    resp+=`**${total.toLocaleString()}** personas encontradas.\n`;
     resp+=`• Mujeres: **${mujeres}** · Hombres: **${total-mujeres}**\n`;
     resp+=`• Activos: **${total-cesArr.length}** · Con cese: **${cesArr.length}**`;
-  }else if(ql.match(/cese|separac/)){
-    const m={};cesArr.forEach(r=>{const v=r['MOTIVO_SEPARACION']||'N/E';m[v]=(m[v]||0)+1;});
+  }else if(esCese){
+    const m={};cesArr.forEach(r=>{const v=r[COLS.motCese]||'N/E';m[v]=(m[v]||0)+1;});
     resp+=`**${cesArr.length} ceses** encontrados:\n`;
     Object.entries(m).sort((a,b)=>b[1]-a[1]).slice(0,10).forEach(([k,v])=>resp+=`• ${k}: **${v}**\n`);
-  }else if(ql.match(/área|area/)){
-    const o={};data.forEach(r=>{const v=r['AREA']||'N/A';o[v]=(o[v]||0)+1;});
-    resp+=`**Distribución por área** (${total} total):\n`;
-    Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,10).forEach(([k,v])=>resp+=`• ${k}: **${v}**\n`);
-  }else if(ql.match(/empresa/)){
-    const o={};data.forEach(r=>{const v=r['EMPRESA']||'N/A';o[v]=(o[v]||0)+1;});
+  }else if(esArea){
+    const o={};data.forEach(r=>{const v=r[COLS.area]||'N/A';o[v]=(o[v]||0)+1;});
+    resp+=`**Por área** (${total} total):\n`;
+    Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,12).forEach(([k,v])=>resp+=`• ${k}: **${v}**\n`);
+  }else if(esEmpresa){
+    const o={};data.forEach(r=>{const v=r[COLS.empresa]||'N/A';o[v]=(o[v]||0)+1;});
     resp+=`**Por empresa** (${total} total):\n`;
-    Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,10).forEach(([k,v])=>resp+=`• ${k}: **${v}**\n`);
-  }else if(ql.match(/contrato/)){
-    const o={};data.forEach(r=>{const v=r['TIPO_CONTRATO']||'N/A';o[v]=(o[v]||0)+1;});
-    resp+=`**Por contrato** (${total} total):\n`;
+    Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,12).forEach(([k,v])=>resp+=`• ${k}: **${v}**\n`);
+  }else if(esContrato){
+    const o={};data.forEach(r=>{const v=r[COLS.contrato]||'N/A';o[v]=(o[v]||0)+1;});
+    resp+=`**Por tipo de contrato** (${total} total):\n`;
     Object.entries(o).sort((a,b)=>b[1]-a[1]).forEach(([k,v])=>resp+=`• ${k}: **${v}**\n`);
+  }else if(esSede){
+    const o={};data.forEach(r=>{const v=r[COLS.sede]||'N/A';o[v]=(o[v]||0)+1;});
+    resp+=`**Por sede** (${total} total):\n`;
+    Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,12).forEach(([k,v])=>resp+=`• ${k}: **${v}**\n`);
+  }else if(esCargo){
+    const o={};data.forEach(r=>{const v=r[COLS.cargo]||'N/A';o[v]=(o[v]||0)+1;});
+    resp+=`**Por cargo** (${total} total):\n`;
+    Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,15).forEach(([k,v])=>resp+=`• ${k}: **${v}**\n`);
+  }else if(esTurno&&COLS.turno){
+    const o={};data.forEach(r=>{const v=r[COLS.turno]||'N/A';o[v]=(o[v]||0)+1;});
+    resp+=`**Por turno** (${total} total):\n`;
+    Object.entries(o).sort((a,b)=>b[1]-a[1]).forEach(([k,v])=>resp+=`• ${k}: **${v}**\n`);
+  }else if(esEdad&&COLS.nacimiento){
+    const edades=data.map(r=>{const d=parseDate(r[COLS.nacimiento]);return d?Math.floor((new Date()-d)/(1000*60*60*24*365.25)):null;}).filter(a=>a!==null&&a>0&&a<100);
+    if(edades.length){
+      const prom=(edades.reduce((a,b)=>a+b,0)/edades.length).toFixed(1);
+      const min=Math.min(...edades),max=Math.max(...edades);
+      resp+=`**Estadísticas de edad** (${edades.length} con fecha de nacimiento):\n`;
+      resp+=`• Promedio: **${prom} años**\n• Mínima: **${min} años** · Máxima: **${max} años**\n`;
+      const bkt={'<25':0,'25-34':0,'35-44':0,'45-54':0,'55+':0};
+      edades.forEach(e=>{if(e<25)bkt['<25']++;else if(e<35)bkt['25-34']++;else if(e<45)bkt['35-44']++;else if(e<55)bkt['45-54']++;else bkt['55+']++;});
+      Object.entries(bkt).forEach(([k,v])=>resp+=`• ${k} años: **${v}**\n`);
+    }else resp='No hay datos de edad disponibles.';
+  }else if(esSalario&&COLS.salario){
+    const sueldos=data.map(r=>parseFloat(r[COLS.salario])||0).filter(s=>s>0);
+    if(sueldos.length){
+      const prom=(sueldos.reduce((a,b)=>a+b,0)/sueldos.length).toFixed(0);
+      resp+=`**Estadísticas salariales** (${sueldos.length} registros):\n`;
+      resp+=`• Promedio: **S/. ${Number(prom).toLocaleString()}**\n`;
+      resp+=`• Mínimo: **S/. ${Math.min(...sueldos).toLocaleString()}**\n`;
+      resp+=`• Máximo: **S/. ${Math.max(...sueldos).toLocaleString()}**`;
+    }else resp='No hay datos salariales disponibles o el campo está vacío.';
   }else{
     resp+=`**${total.toLocaleString()}** registros encontrados.\n`;
     resp+=`• Mujeres: **${mujeres}** · Hombres: **${total-mujeres}**\n`;
-    resp+=`• Activos: **${total-cesArr.length}** · Con cese: **${cesArr.length}**`;
-    if(!contexto)resp+='\n\nConsultas disponibles: activos, ceses, áreas, empresas, contratos, ingresos por mes/año, filtros por género, empresa, sede, departamento.';
+    resp+=`• Activos: **${total-cesArr.length}** · Con cese: **${cesArr.length}**\n\n`;
+    resp+=`Puedo filtrar por: área, empresa, sede, cargo, turno, contrato, género, mes, año, antigüedad, edad${COLS.nacimiento?', cumpleaños':''}${COLS.salario?', salario':''}.`;
   }
   return resp;
 }
 
-function extractMatch(q,data,field){
-  const vals=[...new Set(data.map(r=>(r[field]||'').toLowerCase()).filter(v=>v))];
-  for(const v of vals){if(v.length>2&&q.includes(v))return v;}
+function extractMatchField(q,fieldKey){
+  const field=COLS[fieldKey];if(!field)return null;
+  const vals=[...new Set(employeeData.map(r=>(r[field]||'').toLowerCase()).filter(v=>v&&v.length>2))];
+  for(const v of vals){if(q.includes(v))return v;}
   return null;
 }
 function extractMes(q){
-  const meses={enero:1,febrero:2,marzo:3,abril:4,mayo:5,junio:6,julio:7,agosto:8,septiembre:9,octubre:10,noviembre:11,diciembre:12,jan:1,feb:2,mar:3,apr:4,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
-  for(const[k,v]of Object.entries(meses)){if(q.includes(k))return v;}
-  return null;
+  const m={enero:1,febrero:2,marzo:3,abril:4,mayo:5,junio:6,julio:7,agosto:8,septiembre:9,octubre:10,noviembre:11,diciembre:12,jan:1,feb:2,mar:3,apr:4,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
+  for(const[k,v]of Object.entries(m)){if(q.includes(k))return v;}return null;
 }
 function extractAnio(q){const m=q.match(/20\d{2}/);return m?parseInt(m[0]):null;}
 function mesNombre(n){return['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'][n-1]||'';}
@@ -937,41 +1018,57 @@ function mesNombre(n){return['Enero','Febrero','Marzo','Abril','Mayo','Junio','J
 //  APIS IA
 // ══════════════════════════════════════════
 function buildCtx(q){
-  const byE={},byA={},byD={},byC={};let ces=0,act=0;
-  const sexCol=detectSexCol();let muj=0;
+  const ql=q.toLowerCase();
+  const empresa=extractMatchField(ql,'empresa');
+  const area=extractMatchField(ql,'area');
+  const mes=extractMes(ql);
+  const esCumple=ql.match(/cumple.*año|cumpleaño/);
+
+  let subset=employeeData;
+  if(empresa)subset=subset.filter(r=>(r[COLS.empresa]||'').toLowerCase().includes(empresa));
+  if(area)subset=subset.filter(r=>(r[COLS.area]||'').toLowerCase().includes(area));
+  if(esCumple&&mes&&COLS.nacimiento){
+    subset=subset.filter(r=>{const d=parseDate(r[COLS.nacimiento]);return d&&(d.getMonth()+1)===mes;});
+  }else if(mes&&!esCumple&&COLS.ingreso){
+    subset=subset.filter(r=>{const d=parseDate(r[COLS.ingreso]);return d&&(d.getMonth()+1)===mes;});
+  }
+
+  const byE={},byA={};let ces=0,act=0,muj=0;
   employeeData.forEach(r=>{
-    const add=(o,k)=>{if(k)o[k]=(o[k]||0)+1;};
-    add(byE,r['EMPRESA']);add(byA,r['AREA']);add(byD,r['DEPARTAMENTO']);add(byC,r['TIPO_CONTRATO']);
-    const fc=r['FECHA_CESE']||'';const cm=r['COD_MOTIVO_ SEPARACION']||r['COD_MOTIVO_SEPARACION']||'';
-    ((fc&&fc.toString().trim())||(cm&&cm.toString().trim()))?ces++:act++;
-    if(isFemale(r,sexCol))muj++;
+    const e=r[COLS.empresa]||'';const a=r[COLS.area]||'';
+    if(e)byE[e]=(byE[e]||0)+1;if(a)byA[a]=(byA[a]||0)+1;
+    isCese(r)?ces++:act++;if(isFemale(r))muj++;
   });
-  return `RRHH: ${employeeData.length} registros de ${loadedFiles.length} archivo(s): ${loadedFiles.map(f=>f.name).join(', ')}.
-Columnas disponibles: ${Object.keys(employeeData[0]||{}).join(', ')}.
-Total:${employeeData.length}, Activos:${act}, Ceses:${ces}, Mujeres:${muj}, Hombres:${employeeData.length-muj}.
+
+  return `RRHH: ${employeeData.length} registros · ${loadedFiles.length} archivo(s).
+Columnas: ${Object.keys(employeeData[0]||{}).join(', ')}.
+Columnas clave detectadas: ${JSON.stringify(COLS)}.
+Total:${employeeData.length}, Activos:${act}, Ceses:${ces}, Mujeres:${muj}.
 Top empresas:${JSON.stringify(byE)}.
 Top áreas:${JSON.stringify(byA)}.
-Top departamentos:${JSON.stringify(byD)}.
-Contratos:${JSON.stringify(byC)}.
-Muestra 3 filas:${JSON.stringify(employeeData.slice(0,3))}.`;
+Datos relevantes para la pregunta (${subset.length} de ${employeeData.length}):${JSON.stringify(subset.slice(0,120))}.`;
 }
-const SYS='Eres un asistente experto en RRHH. Responde en español, de forma concisa y precisa. Usa **negrita** para cifras clave. Cuando te pregunten por filtros específicos (empresa, área, género, mes, año), analiza los datos del contexto y responde con el resultado exacto. Usa saltos de línea para listas.';
+const SYS='Eres experto en RRHH. Responde en español, conciso y preciso. Usa **negrita** para cifras. Usa listas con • para enumeraciones. Si hay una lista de personas, enuméralas. No digas que no tienes acceso a los datos — los datos completos relevantes ya están en el contexto.';
 
 async function qGemini(q){
-  const url=`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${getKey('gemini')}`;
-  const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:SYS+'\n\nDatos:\n'+buildCtx(q)+'\n\nPregunta: '+q}]}],generationConfig:{maxOutputTokens:1000,temperature:0.1}})});
-  if(!res.ok){const e=await res.json();throw new Error(e.error?.message||'Error Gemini '+res.status);}
+  const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${getKey('gemini')}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:SYS+'\n\nDatos:\n'+buildCtx(q)+'\n\nPregunta: '+q}]}],generationConfig:{maxOutputTokens:1500,temperature:0.1}})});
+  if(!res.ok){const e=await res.json();const raw=e.error?.message||'';const sm=raw.match(/retry in ([\d.]+)s/i);const err=new Error(raw);err.apiName='Gemini';err.retryAfter=sm?Math.ceil(parseFloat(sm[1])):60;err.type=raw.toLowerCase().includes('quota')||res.status===429?'quota':res.status===403?'auth':'unknown';throw err;}
   const d=await res.json();return d.candidates?.[0]?.content?.parts?.[0]?.text||'Sin respuesta.';
 }
+async function qGroq(q){
+  const res=await fetch('https://api.groq.com/openai/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+getKey('groq')},body:JSON.stringify({model:'llama-3.3-70b-versatile',max_tokens:1500,messages:[{role:'system',content:SYS},{role:'user',content:'Datos:\n'+buildCtx(q)+'\n\nPregunta: '+q}]})});
+  if(!res.ok){const e=await res.json();const err=new Error(e.error?.message||'Error Groq');err.apiName='Groq';err.retryAfter=30;err.type=res.status===429?'quota':res.status===401?'auth':'unknown';throw err;}
+  return (await res.json()).choices[0].message.content;
+}
 async function qClaude(q){
-  const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':getKey('claude'),'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:SYS,messages:[{role:'user',content:'Datos:\n'+buildCtx(q)+'\n\nPregunta: '+q}]})});
-  if(!res.ok){const e=await res.json();throw new Error(e.error?.message||'Error Claude');}
-  const d=await res.json();return d.content[0].text;
+  const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':getKey('claude'),'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1500,system:SYS,messages:[{role:'user',content:'Datos:\n'+buildCtx(q)+'\n\nPregunta: '+q}]})});
+  if(!res.ok){const e=await res.json();const err=new Error(e.error?.message||'Error Claude');err.apiName='Claude';err.retryAfter=60;err.type=res.status===429?'quota':res.status===401?'auth':'unknown';throw err;}
+  return (await res.json()).content[0].text;
 }
 async function qOpenAI(q){
-  const res=await fetch('https://api.openai.com/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+getKey('openai')},body:JSON.stringify({model:'gpt-4o-mini',max_tokens:1000,messages:[{role:'system',content:SYS},{role:'user',content:'Datos:\n'+buildCtx(q)+'\n\nPregunta: '+q}]})});
-  if(!res.ok){const e=await res.json();throw new Error(e.error?.message||'Error OpenAI');}
-  const d=await res.json();return d.choices[0].message.content;
+  const res=await fetch('https://api.openai.com/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+getKey('openai')},body:JSON.stringify({model:'gpt-4o-mini',max_tokens:1500,messages:[{role:'system',content:SYS},{role:'user',content:'Datos:\n'+buildCtx(q)+'\n\nPregunta: '+q}]})});
+  if(!res.ok){const e=await res.json();const err=new Error(e.error?.message||'Error OpenAI');err.apiName='ChatGPT';err.retryAfter=60;err.type=res.status===429?'quota':res.status===401?'auth':'unknown';throw err;}
+  return (await res.json()).choices[0].message.content;
 }
 
 // ══════════════════════════════════════════
@@ -980,16 +1077,14 @@ async function qOpenAI(q){
 function saveSession(){
   const u=chatHistory.filter(m=>m.role==='user');if(!u.length)return;
   const s={id:Date.now(),date:new Date().toLocaleDateString('es-PE',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}),filesInfo:loadedFiles.map(f=>f.name).join(', ')||'Sin nombre',totalRecords:employeeData.length,msgCount:chatHistory.length,preview:u.slice(-2).map(m=>m.text).join(' · '),messages:[...chatHistory]};
-  const idx=allSessions.findIndex(x=>x.active);
-  if(idx>=0)allSessions[idx]={...s,active:true};
-  else{allSessions.unshift({...s,active:true});allSessions.forEach((x,i)=>{if(i>0)x.active=false;});}
+  allSessions=allSessions.filter(x=>!x.active);allSessions.unshift({...s,active:true});
   if(allSessions.length>50)allSessions=allSessions.slice(0,50);
   try{localStorage.setItem(SK.sessions,JSON.stringify(allSessions));}catch(e){}
 }
 function renderHistory(){
   const list=document.getElementById('historyList');
-  const sessions=allSessions.filter(s=>s.messages&&s.messages.filter(m=>m.role==='user').length>0);
-  if(!sessions.length){list.innerHTML='<div class="hempty"><span style="font-size:44px">🕒</span><p style="font-family:DM Mono,monospace;font-size:13px;margin-top:10px">Sin historial aún. Se guarda automáticamente.</p></div>';return;}
+  const sessions=allSessions.filter(s=>s.messages&&s.messages.some(m=>m.role==='user'));
+  if(!sessions.length){list.innerHTML='<div class="hempty"><span style="font-size:44px">🕒</span><p style="font-family:DM Mono,monospace;font-size:13px;margin-top:10px">Sin historial. Se guarda automáticamente.</p></div>';return;}
   list.innerHTML=sessions.map((s,i)=>`<div class="hsession" onclick="loadSession(${i})"><div class="hsession-header"><span style="font-size:18px">💬</span><div class="hsession-info"><h4>${s.filesInfo}</h4><p>${s.date} · ${(s.totalRecords||0).toLocaleString()} registros</p></div><span class="badge-pill badge-accent">${s.msgCount} msgs</span></div><div class="hsession-preview">${s.preview.substring(0,120)}${s.preview.length>120?'…':''}</div></div>`).join('');
 }
 function loadSession(i){const s=allSessions[i];if(!s)return;chatHistory=[...s.messages];document.getElementById('messages').innerHTML='';chatHistory.forEach(m=>renderMsg(m));switchTab('chat');showToast('📂 Sesión del '+s.date);}
@@ -999,36 +1094,29 @@ function clearHistory(){if(!confirm('¿Borrar historial?'))return;allSessions=[]
 //  CONFIG / IA
 // ══════════════════════════════════════════
 function selectAI(ai,silent){
-  activeAI=ai;
-  if(!silent)localStorage.setItem(SK.ai,ai);
-  ['gemini','claude','openai','local'].forEach(a=>{
+  activeAI=ai;if(!silent)localStorage.setItem(SK.ai,ai);
+  ['gemini','claude','openai','groq','local'].forEach(a=>{
     document.getElementById('opt-'+a)?.classList.toggle('selected',a===ai);
     const b=document.getElementById('block-'+a);if(b)b.style.display=a===ai?'block':'none';
   });
-  const labels={gemini:'🔵 GEMINI',claude:'🟣 CLAUDE',openai:'🟢 CHATGPT',local:'⚡ LOCAL'};
-  const badge=document.getElementById('aiBadge');
-  badge.textContent=labels[ai];badge.className='ai-badge '+ai;
+  const labels={gemini:'🔵 GEMINI',claude:'🟣 CLAUDE',openai:'🟢 CHATGPT',groq:'🟠 GROQ',local:'⚡ LOCAL'};
+  const badge=document.getElementById('aiBadge');badge.textContent=labels[ai];badge.className='ai-badge '+ai;
   if(!silent)showToast('✅ IA: '+labels[ai]);
 }
-function getKey(ai){const m={gemini:SK.kg,claude:SK.kc,openai:SK.ko};return localStorage.getItem(m[ai])||'';}
+function getKey(ai){const m={gemini:SK.kg,claude:SK.kc,openai:SK.ko,groq:SK.kgr};return localStorage.getItem(m[ai])||'';}
 function setKeyStatus(ai,ok){const el=document.getElementById('status-'+ai);if(el){el.textContent=ok?'✅ Clave guardada':'Sin clave guardada';el.className='key-status '+(ok?'ks-ok':'ks-empty');}}
 function saveKey(ai){
   const inp=document.getElementById('key-'+ai);const val=inp.value.trim();
   if(!val||val.startsWith('•'))return;
-  const m={gemini:SK.kg,claude:SK.kc,openai:SK.ko};
-  localStorage.setItem(m[ai],val);inp.value='••••••••••••••';setKeyStatus(ai,true);
-  showToast('✅ Clave de '+ai+' guardada');
+  const m={gemini:SK.kg,claude:SK.kc,openai:SK.ko,groq:SK.kgr};
+  localStorage.setItem(m[ai],val);inp.value='••••••••••••••';setKeyStatus(ai,true);showToast('✅ Clave de '+ai+' guardada');
 }
-
-// ══════════════════════════════════════════
-//  HELPERS
-// ══════════════════════════════════════════
 function now(){return new Date().toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'});}
 function showToast(msg,type='s'){
   const t=document.getElementById('toast');t.textContent=msg;
   t.style.borderColor=type==='w'?'#f59e0b':'var(--accent3)';t.style.color=type==='w'?'#f59e0b':'var(--accent3)';
   t.style.opacity='1';t.style.transform='translateY(0)';
-  clearTimeout(t._t);t._t=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(8px)';},3000);
+  clearTimeout(t._t);t._t=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(8px)';},3200);
 }
 </script>
 </body>
