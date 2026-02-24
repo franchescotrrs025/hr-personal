@@ -77,7 +77,7 @@ header{padding:28px 0 20px;display:flex;align-items:center;gap:16px;border-botto
 .sc-blue .stat-value{color:var(--accent)}.sc-green .stat-value{color:var(--accent3)}.sc-pink .stat-value{color:var(--accent2)}.sc-gold .stat-value{color:#f59e0b}.sc-teal .stat-value{color:#06b6d4}.sc-purple .stat-value{color:#a78bfa}
 
 /* DASHBOARD */
-.dash-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+.dash-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:20px}
 .dash-actions h3{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;flex:1}
 .charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
 .chart-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
@@ -117,6 +117,21 @@ header{padding:28px 0 20px;display:flex;align-items:center;gap:16px;border-botto
 .msg.user .msg-bubble{background:linear-gradient(135deg,var(--accent),#8b5cf6);color:white;border-bottom-right-radius:4px}
 .msg.ai .msg-bubble{background:var(--card);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:4px}
 .msg.ai .msg-bubble strong{color:var(--accent3)}
+
+/* ERROR AMIGABLE en el chat */
+.err-card{background:rgba(255,101,132,.06);border:1px solid rgba(255,101,132,.25);border-radius:11px;padding:12px 14px;margin-bottom:8px}
+.err-card .err-title{font-size:12px;font-weight:600;color:var(--accent2);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.err-card .err-body{font-size:12px;color:var(--muted);line-height:1.6;font-family:'DM Mono',monospace}
+.err-card .err-tip{font-size:11px;color:#f59e0b;margin-top:6px;font-family:'DM Mono',monospace}
+.err-divider{border:none;border-top:1px dashed var(--border);margin:10px 0}
+
+/* QUOTA BANNER */
+.quota-banner{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.3);border-radius:11px;padding:11px 14px;margin-bottom:10px;font-size:12px;font-family:'DM Mono',monospace;color:#f59e0b;display:flex;align-items:center;gap:8px}
+.quota-banner .qb-icon{font-size:16px;flex-shrink:0}
+.quota-banner .qb-retry{margin-left:auto;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);color:#f59e0b;padding:4px 10px;border-radius:7px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;transition:all .2s}
+.quota-banner .qb-retry:hover{background:rgba(245,158,11,.25)}
+.quota-banner .qb-retry:disabled{opacity:.5;cursor:not-allowed}
+
 .msg-time{font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:3px}
 .highlight{background:rgba(108,99,255,.15);border-left:3px solid var(--accent);padding:7px 11px;border-radius:4px;margin:7px 0;font-family:'DM Mono',monospace;font-size:12px}
 .input-area{display:flex;gap:8px;align-items:flex-end;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:7px;transition:border-color .2s}
@@ -303,8 +318,6 @@ footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color
         <button class="btn btn-ghost btn-sm" onclick="resetFilters()">↺ Limpiar filtros</button>
       </div>
     </div>
-
-    <!-- Resumen del filtro aplicado -->
     <div id="filterPreview" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;display:none">
       <h4 style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:10px">Vista previa</h4>
       <div id="filterPreviewContent" style="font-size:12px;font-family:'DM Mono',monospace;color:var(--muted);line-height:2"></div>
@@ -319,6 +332,14 @@ footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color
       <button class="btn btn-ghost btn-sm" style="margin-left:auto" onclick="clearChat()">🗑 Limpiar</button>
     </div>
     <div id="noDataWarning" style="display:none" class="warn-box">⚠️ Primero sube archivos Excel en <strong>Datos</strong>.</div>
+
+    <!-- Banner de cuota excedida (oculto por defecto) -->
+    <div id="quotaBanner" style="display:none" class="quota-banner">
+      <span class="qb-icon">⏱</span>
+      <span id="quotaMsg">Límite de Gemini alcanzado. Respuesta local activa.</span>
+      <button class="qb-retry" id="quotaRetryBtn" onclick="retryWithAI()" disabled>Reintentar en <span id="quotaCountdown">--</span>s</button>
+    </div>
+
     <div class="suggestions">
       <span class="chip" onclick="askS(this)">¿Cuántas mujeres hay?</span>
       <span class="chip" onclick="askS(this)">Ceses en enero 2024</span>
@@ -387,7 +408,7 @@ footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color
     </div>
   </div>
 
-  <footer>HR Intelligence · Dashboard · Multi-IA · Exportación Excel · GitHub Pages</footer>
+  <footer>HR Intelligence · Dashboard · Multi-IA · Exportación Excel</footer>
 </div>
 <div class="toast" id="toast"></div>
 
@@ -397,6 +418,7 @@ footer{border-top:1px solid var(--border);padding:20px 0;text-align:center;color
 // ══════════════════════════════════════════
 let loadedFiles=[], employeeData=[], chatHistory=[], allSessions=[], activeAI='local';
 let charts={};
+let quotaRetryTimer=null, lastFailedQuery=null, lastFailedQ=null;
 const SK={files:'hr_files2',sessions:'hr_sessions2',ai:'hr_ai',kg:'hr_kg',kc:'hr_kc',ko:'hr_ko'};
 
 // ══════════════════════════════════════════
@@ -414,7 +436,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(employeeData.length>0)addWelcome();
   renderHistory();
   updateExportCount();
-  // Listen filter changes
   ['fEmpresa','fArea','fSede','fSituacion','fGenero','fFechaDesde','fFechaHasta'].forEach(id=>{
     document.getElementById(id).addEventListener('change',updateExportCount);
     document.getElementById(id).addEventListener('input',updateExportCount);
@@ -429,7 +450,7 @@ function switchTab(tab){
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',ids[i]===tab));
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('panel-'+tab).classList.add('active');
-  if(tab==='dashboard'){renderDashboard();}
+  if(tab==='dashboard')renderDashboard();
   if(tab==='historial')renderHistory();
   if(tab==='chat')document.getElementById('noDataWarning').style.display=employeeData.length===0?'block':'none';
   if(tab==='exportar'){populateFilters();updateExportCount();}
@@ -541,16 +562,13 @@ function renderDashboard(){
   const topArea=topN('AREA',10);
   mkChart('cAreas','bar',topArea.map(x=>x[0]),topArea.map(x=>x[1]),[CHART_COLORS[1]],true);
 
-  // Ingresos por mes (últimos 12 meses)
   const mesCount={};
-  const now=new Date();
+  const nowD=new Date();
   employeeData.forEach(r=>{
     const raw=r['FECHA_INGRESO_ EMPRESA']||r['FECHA_INGRESO_EMPRESA']||'';
     if(!raw)return;
-    const d=new Date(raw);
-    if(isNaN(d))return;
-    const diff=(now-d)/(1000*60*60*24*30);
-    if(diff>13)return;
+    const d=new Date(raw);if(isNaN(d))return;
+    const diff=(nowD-d)/(1000*60*60*24*30);if(diff>13)return;
     const key=d.toLocaleDateString('es-PE',{month:'short',year:'numeric'});
     mesCount[key]=(mesCount[key]||0)+1;
   });
@@ -587,8 +605,7 @@ function exportDashboardPDF(){showToast('💡 Usa Ctrl+P → Guardar como PDF pa
 function populateFilters(){
   if(!employeeData.length)return;
   const fill=(id,field)=>{
-    const sel=document.getElementById(id);
-    const cur=sel.value;
+    const sel=document.getElementById(id);const cur=sel.value;
     const vals=[...new Set(employeeData.map(r=>r[field]||'').filter(v=>v))].sort();
     sel.innerHTML='<option value="">Todas</option>'+vals.map(v=>`<option value="${v}">${v}</option>`).join('');
     if(cur)sel.value=cur;
@@ -652,7 +669,6 @@ function downloadExcel(data,filename){
   const ws=XLSX.utils.json_to_sheet(data);
   const wb=XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb,ws,'Personal');
-  // Auto column width
   const cols=Object.keys(data[0]||{});
   ws['!cols']=cols.map(c=>({wch:Math.min(Math.max(c.length,10),40)}));
   XLSX.writeFile(wb,filename);
@@ -667,6 +683,97 @@ function addWelcome(){
 }
 function askS(el){if(!employeeData.length){switchTab('datos');return;}document.getElementById('queryInput').value=el.textContent;sendQuery();}
 
+// ══════════════════════════════════════════
+//  MANEJO DE ERRORES DE IA — MEJORADO
+// ══════════════════════════════════════════
+
+/**
+ * Parsea el error de API y devuelve un objeto amigable
+ * { type: 'quota'|'auth'|'network'|'unknown', waitSeconds, message }
+ */
+function parseAPIError(err, aiName){
+  const msg = (err.message||'').toLowerCase();
+
+  // Cuota excedida (Gemini free tier)
+  const quotaMatch = err.message.match(/please retry in ([\d.]+)s/i);
+  if(quotaMatch || msg.includes('quota') || msg.includes('rate limit') || msg.includes('resource_exhausted')){
+    const secs = quotaMatch ? Math.ceil(parseFloat(quotaMatch[1])) : 60;
+    return {
+      type:'quota',
+      waitSeconds: secs,
+      friendly: `El plan gratuito de **${aiName}** alcanzó su límite de solicitudes.`,
+      tip: `Puedes reintentar en ~${secs} segundos, o cambiar a **Modo Local** en Config.`
+    };
+  }
+
+  // Error de autenticación
+  if(msg.includes('api key') || msg.includes('unauthorized') || msg.includes('invalid_api_key') || msg.includes('403')){
+    return {
+      type:'auth',
+      waitSeconds: 0,
+      friendly: `La API Key de **${aiName}** no es válida o venció.`,
+      tip: `Revisa tu clave en la pestaña **Config** y vuelve a guardarla.`
+    };
+  }
+
+  // Sin internet / timeout
+  if(msg.includes('failed to fetch') || msg.includes('network') || msg.includes('timeout')){
+    return {
+      type:'network',
+      waitSeconds: 0,
+      friendly: `No se pudo conectar con **${aiName}**.`,
+      tip: `Verifica tu conexión a internet e intenta de nuevo.`
+    };
+  }
+
+  // Genérico
+  return {
+    type:'unknown',
+    waitSeconds: 0,
+    friendly: `**${aiName}** devolvió un error inesperado.`,
+    tip: `Intenta nuevamente o cambia a Modo Local.`
+  };
+}
+
+function showQuotaBanner(secs, query){
+  lastFailedQ = query;
+  const banner = document.getElementById('quotaBanner');
+  const msg = document.getElementById('quotaMsg');
+  const btn = document.getElementById('quotaRetryBtn');
+  const countdown = document.getElementById('quotaCountdown');
+  const aiLabels = {gemini:'Gemini', claude:'Claude', openai:'ChatGPT'};
+
+  msg.textContent = `Límite de ${aiLabels[activeAI]||'IA'} alcanzado. Respuesta local activa.`;
+  banner.style.display = 'flex';
+  btn.disabled = true;
+
+  let remaining = secs;
+  countdown.textContent = remaining;
+
+  if(quotaRetryTimer) clearInterval(quotaRetryTimer);
+  quotaRetryTimer = setInterval(()=>{
+    remaining--;
+    countdown.textContent = remaining;
+    if(remaining <= 0){
+      clearInterval(quotaRetryTimer);
+      btn.disabled = false;
+      countdown.textContent = '0';
+    }
+  }, 1000);
+}
+
+function hideQuotaBanner(){
+  document.getElementById('quotaBanner').style.display='none';
+  if(quotaRetryTimer){ clearInterval(quotaRetryTimer); quotaRetryTimer=null; }
+}
+
+async function retryWithAI(){
+  if(!lastFailedQ) return;
+  hideQuotaBanner();
+  document.getElementById('queryInput').value = lastFailedQ;
+  await sendQuery();
+}
+
 async function sendQuery(){
   if(!employeeData.length){switchTab('datos');return;}
   const inp=document.getElementById('queryInput');const q=inp.value.trim();if(!q)return;
@@ -675,20 +782,44 @@ async function sendQuery(){
   document.getElementById('sendBtn').disabled=true;
   const tid=addTyping();
   try{
-    let ans;
+    let ans, usedLocal=false;
     const key=getKey(activeAI);
-    if(activeAI==='gemini'&&key)ans=await qGemini(q);
-    else if(activeAI==='claude'&&key)ans=await qClaude(q);
-    else if(activeAI==='openai'&&key)ans=await qOpenAI(q);
-    else ans=localQuery(q);
+    if(activeAI==='gemini'&&key) ans=await qGemini(q);
+    else if(activeAI==='claude'&&key) ans=await qClaude(q);
+    else if(activeAI==='openai'&&key) ans=await qOpenAI(q);
+    else { ans=localQuery(q); usedLocal=true; }
+
     removeTyping(tid);
-    const am={role:'ai',text:ans,time:now()};chatHistory.push(am);renderMsg(am);saveSession();
+    hideQuotaBanner();
+    const am={role:'ai',text:ans,time:now()};
+    chatHistory.push(am);renderMsg(am);saveSession();
   }catch(e){
     removeTyping(tid);
-    const am={role:'ai',text:'❌ Error IA: '+e.message+'\n\nRespuesta local:\n'+localQuery(q),time:now()};
+    const aiLabels = {gemini:'Gemini', claude:'Claude', openai:'ChatGPT', local:'Local'};
+    const parsed = parseAPIError(e, aiLabels[activeAI]||activeAI);
+    const localAns = localQuery(q);
+
+    // Mostrar banner de cuota si aplica
+    if(parsed.type === 'quota'){
+      showQuotaBanner(parsed.waitSeconds, q);
+    }
+
+    // Mensaje amigable en el chat — sin el error técnico crudo
+    const aiResponse = buildErrorMsg(parsed, localAns);
+    const am={role:'ai',text:aiResponse,time:now()};
     chatHistory.push(am);renderMsg(am);saveSession();
   }
   document.getElementById('sendBtn').disabled=false;
+}
+
+function buildErrorMsg(parsed, localAns){
+  // Construye un texto de respuesta limpio para el chat
+  let out = '';
+  out += `⚠️ ${parsed.friendly}\n`;
+  out += `💡 ${parsed.tip}\n\n`;
+  out += `---\n`;
+  out += `**Respuesta local:**\n\n${localAns}`;
+  return out;
 }
 
 function renderMsg(m){
@@ -696,10 +827,18 @@ function renderMsg(m){
   el.innerHTML=`<div class="msg-avatar">${m.role==='user'?'👤':'🤖'}</div><div><div class="msg-bubble">${fmt(m.text)}</div><div class="msg-time">${m.time}</div></div>`;
   const msgs=document.getElementById('messages');msgs.appendChild(el);msgs.scrollTop=msgs.scrollHeight;
 }
-function fmt(t){return t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/```([\s\S]*?)```/g,'<div class="highlight">$1</div>').replace(/\n/g,'<br>');}
+
+function fmt(t){
+  return t
+    .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+    .replace(/```([\s\S]*?)```/g,'<div class="highlight">$1</div>')
+    .replace(/^---$/gm,'<hr class="err-divider">')
+    .replace(/\n/g,'<br>');
+}
+
 function addTyping(){const id='t'+Date.now();const el=document.createElement('div');el.className='msg ai';el.id=id;el.innerHTML='<div class="msg-avatar">🤖</div><div class="msg-bubble"><div class="typing"><span></span><span></span><span></span></div></div>';const msgs=document.getElementById('messages');msgs.appendChild(el);msgs.scrollTop=msgs.scrollHeight;return id;}
 function removeTyping(id){const el=document.getElementById(id);if(el)el.remove();}
-function clearChat(){if(chatHistory.filter(m=>m.role==='user').length>0)saveSession();chatHistory=[];document.getElementById('messages').innerHTML='';if(employeeData.length>0)addWelcome();}
+function clearChat(){if(chatHistory.filter(m=>m.role==='user').length>0)saveSession();chatHistory=[];document.getElementById('messages').innerHTML='';hideQuotaBanner();if(employeeData.length>0)addWelcome();}
 
 // ══════════════════════════════════════════
 //  CONSULTA LOCAL AVANZADA
@@ -708,7 +847,6 @@ function localQuery(q){
   const ql=q.toLowerCase();
   const sexCol=detectSexCol();
 
-  // Parsear filtros de la pregunta
   const empresa=extractMatch(ql,employeeData,'EMPRESA');
   const area=extractMatch(ql,employeeData,'AREA');
   const sede=extractMatch(ql,employeeData,'SEDE');
@@ -718,7 +856,6 @@ function localQuery(q){
   const esMujer=ql.match(/mujer|mujeres|femenin|female/);
   const esHombre=ql.match(/hombre|varones?|masculin|male/);
 
-  // Aplicar filtros
   let data=employeeData.filter(r=>{
     if(empresa&&(r['EMPRESA']||'').toLowerCase().indexOf(empresa)<0)return false;
     if(area&&(r['AREA']||'').toLowerCase().indexOf(area)<0)return false;
@@ -729,7 +866,6 @@ function localQuery(q){
     return true;
   });
 
-  // Filtrar por mes/año si se menciona
   const campoFecha=ql.match(/cese|separac/)?['FECHA_CESE']:['FECHA_INGRESO_ EMPRESA','FECHA_INGRESO_EMPRESA'];
   if(mes||anio){
     data=data.filter(r=>{
@@ -752,7 +888,6 @@ function localQuery(q){
 
   if(total===0)return `No encontré registros con los filtros: **${contexto||'ninguno'}**.\n\nIntenta con otros términos de búsqueda.`;
 
-  // Construir respuesta
   let resp='';
   if(contexto)resp+=`Filtros aplicados: **${contexto}**\n\n`;
 
